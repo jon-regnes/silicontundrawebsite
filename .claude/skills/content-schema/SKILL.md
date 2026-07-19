@@ -74,9 +74,10 @@ button can target it cleanly>
 
 ### Fixed `vertical` tag list — do not deviate
 
-Only these five values are valid. Each one maps 1:1 to a generated route at
+Only these eight values are valid. Each one maps 1:1 to a generated route at
 `/resources/prompts/[vertical]`. Adding a new tag value here means adding a new route — don't
-introduce a sixth tag casually.
+introduce a new tag casually. (The list lives in code at `lib/verticals.ts` — update both
+together.)
 
 | Tag value | Maps to |
 |---|---|
@@ -85,6 +86,9 @@ introduce a sixth tag casually.
 | `chiropractic` | Chiropractors |
 | `dental-ortho` | Dental / Orthodontic Offices |
 | `med-spa` | Med Spas |
+| `functional-medicine` | Functional Medicine Clinics |
+| `longevity-medicine` | Longevity Clinics |
+| `medical-weight-loss` | Medical Weight Loss Clinics |
 
 A prompt can carry multiple vertical tags if it genuinely applies to more than one (e.g. a generic
 "review request" prompt might apply to all five) — the `[vertical]` page for each tag should then

@@ -34,6 +34,9 @@ Contact: jon@silicontundrallc.com
   - TRT / men's health clinics: https://www.silicontundrallc.com/resources/prompts/trt
   - Chiropractors: https://www.silicontundrallc.com/resources/prompts/chiropractic
   - Dental / orthodontic offices: https://www.silicontundrallc.com/resources/prompts/dental-ortho
+  - Functional medicine clinics: https://www.silicontundrallc.com/resources/prompts/functional-medicine
+  - Longevity clinics: https://www.silicontundrallc.com/resources/prompts/longevity-medicine
+  - Medical weight loss clinics: https://www.silicontundrallc.com/resources/prompts/medical-weight-loss
 
 ## Booking
 

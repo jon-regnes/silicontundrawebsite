@@ -11,6 +11,9 @@ export const VERTICALS = {
   chiropractic: "Chiropractors",
   "dental-ortho": "Dental / Orthodontic Offices",
   "med-spa": "Med Spas",
+  "functional-medicine": "Functional Medicine Clinics",
+  "longevity-medicine": "Longevity Clinics",
+  "medical-weight-loss": "Medical Weight Loss Clinics",
 } as const;
 
 export type Vertical = keyof typeof VERTICALS;

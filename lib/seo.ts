@@ -33,6 +33,9 @@ export function organizationJsonLd() {
       "dental and orthodontic offices",
       "IV wellness clinics",
       "TRT and men's health clinics",
+      "functional medicine clinics",
+      "longevity clinics",
+      "medical weight loss clinics",
     ],
   };
 }
