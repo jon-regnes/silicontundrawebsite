@@ -1,0 +1,41 @@
+# Silicon Tundra
+
+> Silicon Tundra is the AI and Automation Navigator for Lifestyle Medicine. We help med spas,
+> plastic surgery practices, chiropractors, dental and orthodontic offices, IV wellness clinics,
+> and men's health/TRT clinics automate workflows and adopt smarter tools — so their teams spend
+> more time on patient care.
+
+Website: https://www.silicontundrallc.com
+Contact: jon@silicontundrallc.com
+
+## Services
+
+- The 24/7 Receptionist — AI receptionist systems that answer every inbound call, qualify leads,
+  book appointments, and respond after hours so no patient hits voicemail.
+  https://www.silicontundrallc.com/services#receptionist
+- AI Agent Development — custom AI agents for patient follow-up, intake reminders, reactivation
+  campaigns, lead qualification, review requests, and internal admin workflows.
+  https://www.silicontundrallc.com/services#agents
+- AI & Automation Consulting — audits that find wasted hours, missed revenue, and manual
+  workflows inside lifestyle medicine practices.
+  https://www.silicontundrallc.com/services#consulting
+- AI Product Studio — custom web apps (dashboards, client portals, booking tools, lead
+  management, MVPs) built from your workflows. You bring the problem; we build the product.
+  https://www.silicontundrallc.com/services#product-studio
+
+## Free resources
+
+- Researched Products — curated AI/automation tools for medical practices, with honest pros and
+  cons: https://www.silicontundrallc.com/resources/products
+- Prompt Library — plug-and-play AI prompts organized by vertical:
+  https://www.silicontundrallc.com/resources/prompts
+  - Med spas: https://www.silicontundrallc.com/resources/prompts/med-spa
+  - IV wellness clinics: https://www.silicontundrallc.com/resources/prompts/iv-wellness
+  - TRT / men's health clinics: https://www.silicontundrallc.com/resources/prompts/trt
+  - Chiropractors: https://www.silicontundrallc.com/resources/prompts/chiropractic
+  - Dental / orthodontic offices: https://www.silicontundrallc.com/resources/prompts/dental-ortho
+
+## Booking
+
+Practice owners can book a 30-minute discovery call:
+https://www.silicontundrallc.com/contact
