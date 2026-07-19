@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import type { Prompt } from "@/lib/content";
-import { VERTICALS } from "@/lib/verticals";
+import { VerticalBadges } from "./VerticalBadges";
 
 export function PromptCard({ prompt }: { prompt: Prompt }) {
   return (
@@ -11,11 +10,7 @@ export function PromptCard({ prompt }: { prompt: Prompt }) {
       className="group"
     >
       <Card className="flex h-full flex-col transition-colors group-hover:border-accent">
-        <div className="flex flex-wrap gap-2">
-          {prompt.vertical.map((v) => (
-            <Badge key={v}>{VERTICALS[v]}</Badge>
-          ))}
-        </div>
+        <VerticalBadges verticals={prompt.vertical} />
         <h3 className="mt-4 font-heading text-lg font-semibold group-hover:text-accent">
           {prompt.title}
         </h3>

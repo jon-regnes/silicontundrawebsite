@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { VERTICALS, type Prompt } from "@/lib/content";
+import { VerticalBadges } from "@/components/resources/VerticalBadges";
+import type { Prompt } from "@/lib/content";
 
 export function ResourcesTeaser({ prompts }: { prompts: Prompt[] }) {
   return (
@@ -34,11 +34,7 @@ export function ResourcesTeaser({ prompts }: { prompts: Prompt[] }) {
               className="group"
             >
               <Card className="h-full transition-colors group-hover:border-accent">
-                <div className="flex flex-wrap gap-2">
-                  {prompt.vertical.map((v) => (
-                    <Badge key={v}>{VERTICALS[v]}</Badge>
-                  ))}
-                </div>
+                <VerticalBadges verticals={prompt.vertical} />
                 <h3 className="mt-4 font-heading text-lg font-semibold group-hover:text-accent">
                   {prompt.title}
                 </h3>
