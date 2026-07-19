@@ -259,7 +259,7 @@ formatted email to Jon's work inbox. Reply-to is set to the submitter's email fo
 
 - Final domain: wwww.silicontundrallc.com
 - Real work email for contact form delivery is jon@silicontundrallc.com
-- [ ] Real testimonial(s) to replace placeholder quote
+- [x] Real testimonial(s) to replace placeholder quote (VP of Operations, Mendota Health — on home page)
 - [ ] Cal.com account created + Google Workspace calendar connected
 - [ ] Kit account created + API key / form ID
 - [ ] Resend account created + API key + verified sending domain
