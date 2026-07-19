@@ -4,6 +4,7 @@ import { PromptGrid } from "@/components/resources/PromptGrid";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getPrompts, VERTICALS, type Vertical } from "@/lib/content";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "AI Prompt Library for Lifestyle Medicine Practices",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     title: "AI Prompt Library | Silicon Tundra",
     description:
       "Free plug-and-play AI prompts for lifestyle medicine practices, organized by vertical.",
+    images: [OG_IMAGE],
   },
 };
 

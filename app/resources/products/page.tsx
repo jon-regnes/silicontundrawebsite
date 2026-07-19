@@ -4,7 +4,7 @@ import { ProductGrid } from "@/components/resources/ProductGrid";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getProductCategories, getProducts } from "@/lib/content";
-import { itemListJsonLd } from "@/lib/seo";
+import { itemListJsonLd, OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Researched AI & Automation Tools for Medical Practices",
@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: "Researched Products | Silicon Tundra",
     description:
       "Curated AI and automation tools for lifestyle medicine practices, with honest pros and cons.",
+    images: [OG_IMAGE],
   },
 };
 

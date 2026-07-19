@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact — Book a Discovery Call",
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
     title: "Contact Silicon Tundra",
     description:
       "Book a discovery call about AI and automation for your practice.",
+    images: [OG_IMAGE],
   },
 };
 

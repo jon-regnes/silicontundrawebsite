@@ -15,7 +15,7 @@ export function Footer() {
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-3">
         <div className="space-y-4">
-          <Logo />
+          <Logo variant="lockup" />
           <p className="max-w-xs text-sm text-muted">
             The AI and Automation Navigator for Lifestyle Medicine. Automated
             workflows + smarter tools = more time to focus on patient care.

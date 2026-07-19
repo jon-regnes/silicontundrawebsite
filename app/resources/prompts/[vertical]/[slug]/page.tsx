@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getPrompt, getPrompts, isVertical, VERTICALS } from "@/lib/content";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ vertical: string; slug: string }>;
@@ -38,6 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: prompt.title,
       description: prompt.useCase,
+      images: [OG_IMAGE],
     },
   };
 }

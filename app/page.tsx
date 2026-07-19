@@ -7,6 +7,7 @@ import { ResourcesTeaser } from "@/components/home/ResourcesTeaser";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { Testimonial } from "@/components/home/Testimonial";
 import { getPrompts, getServices } from "@/lib/content";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
     description:
       "Automated workflows + smarter tools = more time to focus on patient care.",
+    images: [OG_IMAGE],
   },
 };
 

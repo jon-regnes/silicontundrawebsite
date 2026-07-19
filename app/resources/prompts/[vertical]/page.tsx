@@ -12,7 +12,7 @@ import {
   VERTICALS,
   type Vertical,
 } from "@/lib/content";
-import { absoluteUrl, itemListJsonLd } from "@/lib/seo";
+import { absoluteUrl, itemListJsonLd, OG_IMAGE } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ vertical: string }>;
@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `AI Prompts for ${label} | Silicon Tundra`,
       description: `Free plug-and-play AI prompts built for ${label.toLowerCase()}.`,
+      images: [OG_IMAGE],
     },
   };
 }

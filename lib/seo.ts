@@ -8,6 +8,9 @@ export const SITE_NAME = "Silicon Tundra";
 export const SITE_DESCRIPTION =
   "Silicon Tundra is the AI and Automation Navigator for lifestyle medicine — AI receptionists, custom agents, automation consulting, and custom software for med spas, chiropractors, dental offices, IV wellness, and TRT clinics.";
 
+/** Default OpenGraph image — referenced by every page's openGraph.images. */
+export const OG_IMAGE = "/images/og/og-image.jpg";
+
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }

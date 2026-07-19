@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getServices } from "@/lib/content";
-import { serviceJsonLd } from "@/lib/seo";
+import { OG_IMAGE, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services — AI Receptionists, Agents, Consulting & Custom Software",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     title: "Silicon Tundra Services",
     description:
       "24/7 AI receptionists, custom AI agents, automation consulting, and custom software for lifestyle medicine practices.",
+    images: [OG_IMAGE],
   },
 };
 

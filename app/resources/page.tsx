@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { getProducts, getPrompts } from "@/lib/content";
+import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Resources — AI Tools & Prompts for Lifestyle Medicine",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
     title: "Silicon Tundra Resources",
     description:
       "Researched AI tools and plug-and-play prompts for lifestyle medicine practices.",
+    images: [OG_IMAGE],
   },
 };
 
