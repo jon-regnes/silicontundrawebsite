@@ -1,7 +1,8 @@
 # Silicon Tundra — SMB Pivot & Prompt Library Restructure
 
 **Date:** 2026-07-20
-**Status:** Approved design, pending spec review
+**Status:** Approved — taxonomy, URL shape, tagline, and the 27-prompt matrix all signed off; ready
+for implementation planning.
 
 ## Overview
 
@@ -94,29 +95,28 @@ tags:
 
 ## Prompt content plan
 
-Fresh set of 24 core prompts — one per function per industry — plus a handful of genuinely
-cross-industry prompts (tagged to multiple industries) so industry pages don't look sparse.
-Target ~24–30 total.
-
-Core matrix (industry × function):
+Fresh set of **24 core prompts** (one per function per industry) plus **3 cross-industry flagship
+prompts** (tagged to several industries so industry pages don't look sparse) = **27 total**.
+Approved matrix with finalized titles:
 
 | Industry | Operations | Marketing | Sales |
 |---|---|---|---|
-| Field Services | Technician daily route/dispatch brief | Seasonal service-reminder campaign | Estimate follow-up on a pending quote |
-| Real Estate | Transaction milestone / closing-coordination update | Listing launch: MLS description + social captions | New-lead follow-up sequence |
-| Manufacturing & Industrial | Shift handoff / production-run status summary | Spec-sheet-to-product-page copy | RFQ response / quote cover note |
-| Lifestyle Medicine | New-patient intake reminder | Treatment / seasonal promo campaign | Consult-to-booking follow-up |
-| Logistics | Shipment exception / delay notification | Lane / capacity availability announcement | New-shipper prospect outreach |
-| Rentals & B2B Ops | Rental return / overdue reminder | Off-season availability promo | Rental-inquiry quote follow-up |
-| Animal & Pet Care | Appointment / vaccination reminder | Seasonal service promo (grooming, boarding) | New-client welcome / package upsell |
-| Agriculture & Extraction | Field / equipment status log summary | Direct-to-buyer / seasonal supply update | Wholesale buyer outreach |
+| Field Services | Technician Dispatch Brief | Seasonal Service Reminder | Estimate Follow-Up |
+| Real Estate | Closing Coordination Update | Listing Launch Kit | New Lead Follow-Up Sequence |
+| Manufacturing & Industrial | Shift Handoff Summary | Spec-Sheet to Product Page | RFQ Response Cover |
+| Lifestyle Medicine | New Patient Intake Reminder | Treatment Promo Campaign | Consult-to-Booking Follow-Up |
+| Logistics | Shipment Exception Notice | Lane / Capacity Announcement | New Shipper Outreach |
+| Rentals & B2B Ops | Return / Overdue Reminder | Off-Season Availability Promo | Rental Inquiry Quote Follow-Up |
+| Animal & Pet Care | Appointment & Vaccination Reminder | Seasonal Service Promo | New Client Welcome & Upsell |
+| Agriculture & Extraction | Field / Equipment Status Log | Direct-to-Buyer Seasonal Update | Wholesale Buyer Outreach |
 
-Optional cross-industry flagships (tagged to several industries), e.g.:
-- Operations: "Missed-call-to-text recovery" (field-services, pet-care, lifestyle-medicine)
-- Marketing: "Google review request" (most B2C industries)
-- Sales: "Cold-lead reactivation" (most industries)
+Cross-industry flagship prompts (confirmed):
+- **Operations — Missed-Call-to-Text Recovery** → field-services, pet-care, lifestyle-medicine, rentals-b2b
+- **Marketing — Google Review Request** → field-services, real-estate, lifestyle-medicine, pet-care
+- **Sales — Cold-Lead Reactivation** → field-services, real-estate, logistics, rentals-b2b, manufacturing
 
-Each prompt uses `[BRACKETED]` placeholders as the current prompts do.
+Each prompt uses `[BRACKETED]` placeholders as the current prompts do. Detail-cell prompts are
+tagged to their single industry; flagship prompts carry the multi-industry lists above.
 
 ## Components & filtering UX
 
