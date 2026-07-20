@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 import { isVertical, type Vertical } from "./verticals";
+import { isIndustry, type Industry, type PromptFunction } from "./taxonomy";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
@@ -31,7 +32,9 @@ export interface Product {
 export interface Prompt {
   slug: string;
   title: string;
-  vertical: Vertical[];
+  vertical: Vertical[];        // deprecated, removed in Task 6
+  function: PromptFunction;    // new
+  industries: Industry[];      // new
   useCase: string;
   tags: string[];
   body: string;
@@ -100,10 +103,14 @@ export function getPrompts(): Prompt[] {
   return readCollection("prompts")
     .map(({ slug, data, content }) => {
       const verticals = ((data.vertical ?? []) as string[]).filter(isVertical);
+      const fn = (data.function as string) ?? "operations";
+      const industries = ((data.industries ?? []) as string[]).filter(isIndustry);
       return {
         slug,
         title: data.title as string,
         vertical: verticals,
+        function: (fn === "marketing" || fn === "sales" ? fn : "operations") as PromptFunction,
+        industries,
         useCase: data.useCase as string,
         tags: (data.tags ?? []) as string[],
         body: content,
@@ -115,6 +122,14 @@ export function getPrompts(): Prompt[] {
 
 export function getPromptsByVertical(vertical: Vertical): Prompt[] {
   return getPrompts().filter((p) => p.vertical.includes(vertical));
+}
+
+export function getPromptsByFunction(fn: PromptFunction): Prompt[] {
+  return getPrompts().filter((p) => p.function === fn);
+}
+
+export function getPromptsByIndustry(ind: Industry): Prompt[] {
+  return getPrompts().filter((p) => p.industries.includes(ind));
 }
 
 export function getPrompt(slug: string): Prompt | undefined {
