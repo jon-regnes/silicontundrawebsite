@@ -30,6 +30,9 @@ yarn-error.log*
 # claude code local settings
 .claude/settings.local.json
 
+# superpowers subagent-driven-development scratch (briefs, diffs, ledger)
+.superpowers/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
