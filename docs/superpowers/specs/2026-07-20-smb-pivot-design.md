@@ -25,8 +25,8 @@ pages.
 2. **8 industries × 3 functions.**
 3. **Fresh seed set** — retire all 56 existing lifestyle-medicine prompts; write a new set
    (~24–30) spanning every function for every industry.
-4. **Core tagline** → "Automated workflows + smarter tools = more time to focus on the work that
-   matters."
+4. **Core tagline** → "Automated workflows + smarter tools = more time to focus on what your
+   business does best."
 5. **Terminology** — the ambiguous term "vertical" is retired in favor of "industry" and
    "function."
 
