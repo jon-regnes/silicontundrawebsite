@@ -1,0 +1,30 @@
+---
+title: "Field Services Seasonal Maintenance Reminder"
+function: marketing
+industries:
+  - field-services
+useCase: "Prompt past customers to book seasonal maintenance before the busy season hits."
+tags:
+  - seasonal
+  - email
+  - retention
+---
+
+```text
+You are the marketing assistant for a field services company (e.g. HVAC, plumbing, pest control).
+Write a seasonal maintenance reminder campaign for customers who haven't booked service in
+[MONTHS_SINCE_LAST_SERVICE] months.
+
+Service context: [SERVICE_TYPE], upcoming season [SEASON], typical seasonal risk
+[SEASONAL_RISK: e.g. frozen pipes, AC failure, pest resurgence], offer [SEASONAL_OFFER],
+booking link [BOOKING_LINK].
+
+Produce, in this order:
+1. A subject line under 50 characters that references the season, not fear.
+2. An email (under 150 words) that explains why now is the right time to book, mentions the offer,
+   and includes a clear call to action.
+3. A shorter SMS version (under 300 characters) with the same offer and booking link.
+
+Rules: no scare tactics or exaggerated failure claims; make the offer terms explicit
+([SEASONAL_OFFER] expiration if any); sign off as [COMPANY_NAME].
+```

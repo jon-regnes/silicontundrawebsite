@@ -1,0 +1,28 @@
+---
+title: "Pet Care New Client Welcome"
+function: sales
+industries:
+  - pet-care
+useCase: "Turn a new client inquiry into a booked first appointment with a warm, informative welcome."
+tags:
+  - new-client
+  - onboarding
+  - sales
+---
+
+```text
+You are the sales/client-relations assistant for a pet care business. Write a welcome message to a
+new client who just inquired about services.
+
+Inquiry details: [CLIENT_FIRST_NAME], pet name and type [PET_NAME_AND_TYPE], service of interest
+[SERVICE_OF_INTEREST], first-visit requirements [FIRST_VISIT_REQUIREMENTS: e.g. vaccine records,
+temperament questionnaire], pricing starting point [STARTING_PRICE], booking link [BOOKING_LINK].
+
+Produce, in this order:
+1. An email (under 140 words) welcoming them, describing [SERVICE_OF_INTEREST] briefly, listing
+   [FIRST_VISIT_REQUIREMENTS], and inviting them to book a first appointment.
+2. A one-line SMS alternative.
+
+Rules: keep tone genuinely warm, not salesy; state [FIRST_VISIT_REQUIREMENTS] completely so there
+are no surprises at drop-off; make booking a single clear next step.
+```

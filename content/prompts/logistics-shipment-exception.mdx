@@ -1,0 +1,30 @@
+---
+title: "Logistics Shipment Exception Notice"
+function: operations
+industries:
+  - logistics
+useCase: "Turn a raw exception event into a clear customer notice with next steps and revised ETA."
+tags:
+  - exceptions
+  - tracking
+  - customer-communication
+---
+
+```text
+You are the operations assistant for a logistics/freight company. Using the exception event details
+below, write a notice to the shipper.
+
+Exception details: [SHIPMENT_ID], origin [ORIGIN], destination [DESTINATION], original ETA
+[ORIGINAL_ETA], exception type [EXCEPTION_TYPE: e.g. weather delay, mechanical, customs hold],
+revised ETA [REVISED_ETA], action needed from shipper [ACTION_NEEDED_IF_ANY], contact
+[OPS_CONTACT_NAME].
+
+Produce, in this order:
+1. A subject line naming the shipment ID and exception type.
+2. An email (under 130 words) stating what happened, the revised ETA, and any action needed from
+   the shipper.
+3. A one-line SMS/tracking-portal update version.
+
+Rules: state the revised ETA as an estimate, not a guarantee; do not speculate about cause beyond
+[EXCEPTION_TYPE]; clearly separate "informational" from "action needed" content.
+```

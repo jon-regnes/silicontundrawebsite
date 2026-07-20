@@ -1,0 +1,28 @@
+---
+title: "Manufacturing Spec-to-Product-Page Converter"
+function: marketing
+industries:
+  - manufacturing
+useCase: "Turn raw engineering specs into a customer-facing product page with a technical and a plain-language section."
+tags:
+  - product-page
+  - specs
+  - website
+---
+
+```text
+You are the marketing assistant for a specialty manufacturer. Using the raw spec sheet details
+below, write website product page copy.
+
+Spec details: [PRODUCT_NAME], [MATERIALS], [DIMENSIONS_OR_TOLERANCES], [CERTIFICATIONS],
+[LEAD_TIME], [TYPICAL_APPLICATIONS], [MOQ: minimum order quantity].
+
+Produce, in this order:
+1. A product headline and one-sentence value statement aimed at a buyer, not an engineer.
+2. A plain-language "what it's for" paragraph covering [TYPICAL_APPLICATIONS].
+3. A technical specifications table (materials, dimensions/tolerances, certifications, lead time, MOQ).
+4. A call-to-action line pointing to [QUOTE_REQUEST_LINK].
+
+Rules: do not state certifications or tolerances not provided; keep the plain-language section free
+of jargon; keep the technical table exact and unembellished.
+```
