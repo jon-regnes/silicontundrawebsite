@@ -14,9 +14,9 @@ export function Hero() {
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted md:text-xl">
           Automated workflows + smarter tools = more time to focus on what
-          your business does best. We help field service companies, real
-          estate teams, manufacturers, and lifestyle medicine practices run
-          leaner and grow faster.
+          your business does best. We help businesses in field services, real
+          estate, manufacturing, lifestyle medicine, logistics, rentals &amp;
+          B2B, pet care, and agriculture run leaner and grow faster.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="/contact">Book a Discovery Call</Button>

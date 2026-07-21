@@ -6,7 +6,7 @@ import { OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Contact — Book a Discovery Call",
   description:
-    "Get in touch with Silicon Tundra about AI receptionists, agents, automation consulting, or custom software for your lifestyle medicine practice.",
+    "Get in touch with Silicon Tundra about AI receptionists, agents, automation consulting, or custom software for your business.",
   openGraph: {
     title: "Contact Silicon Tundra",
     description:

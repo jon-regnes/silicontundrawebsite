@@ -9,7 +9,7 @@ import { itemListJsonLd, OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Researched AI & Automation Tools for Medical Practices",
   description:
-    "Curated AI and automation products for lifestyle medicine practices — scheduling, voice AI, automation, and operations tools with honest pros and cons for each.",
+    "Curated AI and automation products for small and medium businesses — scheduling, voice AI, automation, and operations tools with honest pros and cons for each.",
   openGraph: {
     title: "Researched Products | Silicon Tundra",
     description:
@@ -35,7 +35,7 @@ export default function ProductsPage() {
           Researched Products
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
-          Tools we&apos;ve actually evaluated for lifestyle medicine practices.
+          Tools we&apos;ve actually evaluated for small and medium businesses.
           No affiliate spin — what each one does well, and where it falls
           short.
         </p>
