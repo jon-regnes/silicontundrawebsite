@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact Silicon Tundra",
     description:
-      "Book a discovery call about AI and automation for your practice.",
+      "Book a discovery call about AI and automation for your business.",
     images: [OG_IMAGE],
   },
 };
