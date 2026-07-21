@@ -43,7 +43,7 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted">
             From answering every call to building fully custom software — four
-            ways to put AI to work in your practice.
+            ways to put AI to work in your business.
           </p>
         </Container>
       </Section>
