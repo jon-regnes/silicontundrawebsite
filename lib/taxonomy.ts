@@ -11,7 +11,7 @@ export const FUNCTIONS = {
 export type PromptFunction = keyof typeof FUNCTIONS;
 
 export function isFunction(value: string): value is PromptFunction {
-  return value in FUNCTIONS;
+  return Object.hasOwn(FUNCTIONS, value);
 }
 
 export const INDUSTRIES = {
@@ -28,5 +28,5 @@ export const INDUSTRIES = {
 export type Industry = keyof typeof INDUSTRIES;
 
 export function isIndustry(value: string): value is Industry {
-  return value in INDUSTRIES;
+  return Object.hasOwn(INDUSTRIES, value);
 }

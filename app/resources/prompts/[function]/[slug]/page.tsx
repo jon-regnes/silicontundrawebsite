@@ -6,33 +6,33 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { getPrompt, getPrompts, isVertical, VERTICALS } from "@/lib/content";
+import { getPrompt, getPrompts } from "@/lib/content";
+import { FUNCTIONS, INDUSTRIES, isFunction } from "@/lib/taxonomy";
 import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 interface Props {
-  params: Promise<{ vertical: string; slug: string }>;
+  params: Promise<{ function: string; slug: string }>;
 }
 
 export function generateStaticParams() {
-  return getPrompts().flatMap((prompt) =>
-    prompt.vertical.map((vertical) => ({ vertical, slug: prompt.slug })),
-  );
+  return getPrompts().map((prompt) => ({
+    function: prompt.function,
+    slug: prompt.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { vertical, slug } = await params;
+  const { function: fn, slug } = await params;
   const prompt = getPrompt(slug);
-  if (!prompt || !isVertical(vertical) || !prompt.vertical.includes(vertical)) {
+  if (!prompt || !isFunction(fn) || prompt.function !== fn) {
     return {};
   }
   return {
-    title: `${prompt.title} — AI Prompt for ${VERTICALS[vertical]}`,
+    title: `${prompt.title} — AI Prompt`,
     description: `${prompt.useCase} Free plug-and-play AI prompt from Silicon Tundra — copy it and use it in the AI tool you already have.`,
-    // Canonical points at the prompt's primary vertical so multi-vertical
-    // prompts don't compete with themselves in search.
     alternates: {
       canonical: absoluteUrl(
-        `/resources/prompts/${prompt.vertical[0]}/${prompt.slug}`,
+        `/resources/prompts/${prompt.function}/${prompt.slug}`,
       ),
     },
     openGraph: {
@@ -44,11 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PromptDetailPage({ params }: Props) {
-  const { vertical, slug } = await params;
+  const { function: fn, slug } = await params;
   const prompt = getPrompt(slug);
-  if (!prompt || !isVertical(vertical) || !prompt.vertical.includes(vertical)) {
+  if (!prompt || !isFunction(fn) || prompt.function !== fn) {
     notFound();
   }
+
+  const functionLabel = FUNCTIONS[prompt.function];
 
   return (
     <Section className="pt-24">
@@ -59,16 +61,17 @@ export default async function PromptDetailPage({ params }: Props) {
           </Link>{" "}
           /{" "}
           <Link
-            href={`/resources/prompts/${vertical}`}
+            href={`/resources/prompts/${prompt.function}`}
             className="hover:text-accent"
           >
-            {VERTICALS[vertical]}
+            {functionLabel}
           </Link>{" "}
           / {prompt.title}
         </nav>
         <div className="mt-6 flex flex-wrap gap-2">
-          {prompt.vertical.map((v) => (
-            <Badge key={v}>{VERTICALS[v]}</Badge>
+          <Badge>{functionLabel}</Badge>
+          {prompt.industries.map((industry) => (
+            <Badge key={industry}>{INDUSTRIES[industry]}</Badge>
           ))}
           {prompt.tags.map((tag) => (
             <Badge key={tag} className="text-muted">
@@ -93,7 +96,7 @@ export default async function PromptDetailPage({ params }: Props) {
             </pre>
           </div>
           <p className="mt-4 text-sm text-muted">
-            Replace the [BRACKETED] placeholders with your practice&apos;s
+            Replace the [BRACKETED] placeholders with your business&apos;s
             details, then paste into ChatGPT, Claude, or the AI tool you
             already use.
           </p>
