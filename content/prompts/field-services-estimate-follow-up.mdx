@@ -1,0 +1,27 @@
+---
+title: "Field Services Estimate Follow-Up"
+function: sales
+industries:
+  - field-services
+useCase: "Re-engage a prospect who received an estimate but hasn't booked the job yet."
+tags:
+  - follow-up
+  - estimates
+  - sales
+---
+
+```text
+You are the sales assistant for a field services company. Write a follow-up message to a prospect
+who received an estimate [DAYS_SINCE_ESTIMATE] days ago and has not yet scheduled the job.
+
+Estimate details: [JOB_TYPE], quoted price [QUOTE_AMOUNT], estimate reference [ESTIMATE_NUMBER],
+sales rep [REP_NAME], booking link [BOOKING_LINK], any time-sensitive incentive [INCENTIVE].
+
+Produce, in this order:
+1. A short email (under 130 words) that references the estimate, restates the core value in one
+   sentence, addresses one likely objection [LIKELY_OBJECTION: e.g. price, timing], and asks to book.
+2. A one-line SMS alternative for customers who prefer text.
+
+Rules: do not pressure or use false urgency; only mention [INCENTIVE] if it is genuinely
+time-limited; make booking a single clear next step via [BOOKING_LINK].
+```

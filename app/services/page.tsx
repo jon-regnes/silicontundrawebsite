@@ -10,11 +10,11 @@ import { OG_IMAGE, serviceJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Services — AI Receptionists, Agents, Consulting & Custom Software",
   description:
-    "Four ways Silicon Tundra puts AI to work in lifestyle medicine practices: 24/7 AI receptionists, custom AI agents, automation consulting, and an AI product studio.",
+    "Four ways Silicon Tundra puts AI to work in small and medium businesses: 24/7 AI receptionists, custom AI agents, automation consulting, and an AI product studio.",
   openGraph: {
     title: "Silicon Tundra Services",
     description:
-      "24/7 AI receptionists, custom AI agents, automation consulting, and custom software for lifestyle medicine practices.",
+      "24/7 AI receptionists, custom AI agents, automation consulting, and custom software for small and medium businesses.",
     images: [OG_IMAGE],
   },
 };
@@ -43,7 +43,7 @@ export default function ServicesPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-muted">
             From answering every call to building fully custom software — four
-            ways to put AI to work in your practice.
+            ways to put AI to work in your business.
           </p>
         </Container>
       </Section>

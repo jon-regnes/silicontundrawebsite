@@ -7,13 +7,13 @@ import { getProducts, getPrompts } from "@/lib/content";
 import { OG_IMAGE } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Resources — AI Tools & Prompts for Lifestyle Medicine",
+  title: "Resources — AI Tools & Prompts for Small & Medium Business",
   description:
-    "Free resources for lifestyle medicine practices: researched AI and automation tools, plus plug-and-play prompts for med spas, chiropractors, dental offices, IV wellness, and TRT clinics.",
+    "Free resources for small and medium businesses: researched AI and automation tools, plus plug-and-play prompts for field services, real estate, manufacturing, lifestyle medicine, logistics, rentals & B2B, pet care, and agriculture businesses.",
   openGraph: {
     title: "Silicon Tundra Resources",
     description:
-      "Researched AI tools and plug-and-play prompts for lifestyle medicine practices.",
+      "Researched AI tools and plug-and-play prompts for small and medium businesses.",
     images: [OG_IMAGE],
   },
 };
@@ -39,8 +39,8 @@ export default function ResourcesPage() {
                 Researched Products
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                AI and automation tools we&apos;ve evaluated for lifestyle
-                medicine practices — what each one does, who it&apos;s best
+                AI and automation tools we&apos;ve evaluated for small and
+                medium businesses — what each one does, who it&apos;s best
                 for, and the honest pros and cons.
               </p>
               <span className="mt-6 inline-block text-sm font-medium text-accent">
@@ -55,7 +55,8 @@ export default function ResourcesPage() {
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 Plug-and-play AI prompts for follow-ups, reactivation, reviews,
-                and intake — organized by vertical, ready to copy.
+                and intake — organized by function and industry, ready to
+                copy.
               </p>
               <span className="mt-6 inline-block text-sm font-medium text-accent">
                 Browse {promptCount} prompts &rarr;

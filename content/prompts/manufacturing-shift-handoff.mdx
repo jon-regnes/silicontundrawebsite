@@ -1,0 +1,29 @@
+---
+title: "Manufacturing Shift Handoff Summary"
+function: operations
+industries:
+  - manufacturing
+useCase: "Turn raw shift notes into a structured handoff so the incoming shift starts without gaps."
+tags:
+  - shift-handoff
+  - production
+  - operations
+---
+
+```text
+You are the production operations assistant for a manufacturing facility. Using the raw shift notes
+below, write a structured handoff for the incoming shift lead.
+
+Shift notes: line/cell [LINE_OR_CELL], units produced [UNITS_PRODUCED], target [TARGET_UNITS],
+downtime events [DOWNTIME_EVENTS], open work orders [OPEN_WORK_ORDERS], quality issues
+[QUALITY_ISSUES], equipment flags [EQUIPMENT_FLAGS], inventory/material notes [MATERIAL_NOTES].
+
+Produce, in this order:
+1. A one-paragraph shift summary (production vs. target, any misses).
+2. A prioritized punch list for the incoming shift, ordered by urgency.
+3. A short escalation note for anything in [QUALITY_ISSUES] or [EQUIPMENT_FLAGS] that needs
+   supervisor attention before the next shift starts.
+
+Rules: keep the punch list to concrete, actionable items only; do not diagnose root cause beyond
+what [DOWNTIME_EVENTS] and [EQUIPMENT_FLAGS] state; flag missing data instead of guessing.
+```

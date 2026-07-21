@@ -1,0 +1,30 @@
+---
+title: "Manufacturing RFQ Response Draft"
+function: sales
+industries:
+  - manufacturing
+useCase: "Turn an incoming RFQ into a clear, complete quote response that's ready for sales review."
+tags:
+  - rfq
+  - quoting
+  - sales
+---
+
+```text
+You are the sales assistant for a specialty manufacturer. Using the RFQ details below, draft a
+response to send to the prospective buyer.
+
+RFQ details: [BUYER_COMPANY], [PART_OR_PRODUCT], quantity [QUANTITY], target price
+[TARGET_PRICE_IF_GIVEN], required specs [REQUIRED_SPECS], requested lead time [REQUESTED_LEAD_TIME],
+your quoted price [QUOTED_PRICE], your lead time [QUOTED_LEAD_TIME], rep name [REP_NAME].
+
+Produce, in this order:
+1. An email thanking them for the RFQ and confirming you can meet (or where you differ from)
+   [REQUIRED_SPECS] and [REQUESTED_LEAD_TIME].
+2. A clear quote summary: price, quantity, lead time, and any conditions (tooling costs, MOQ,
+   payment terms [PAYMENT_TERMS]).
+3. A closing line proposing a call to finalize, with [SCHEDULING_LINK].
+
+Rules: never overstate capability beyond [QUOTED_LEAD_TIME] and [REQUIRED_SPECS] as given; flag any
+gap between requested and quoted terms explicitly rather than glossing over it.
+```

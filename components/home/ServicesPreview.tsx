@@ -12,7 +12,7 @@ export function ServicesPreview({ services }: { services: Service[] }) {
           What we build
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Four ways to put AI to work in your practice — from the front desk to
+          Four ways to put AI to work in your business — from the front desk to
           fully custom software.
         </p>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">

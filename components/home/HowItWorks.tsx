@@ -5,7 +5,7 @@ const steps = [
   {
     title: "Find the leaks",
     description:
-      "We audit your practice for missed calls, manual follow-up, and admin work eating staff hours.",
+      "We audit your business for missed calls, manual follow-up, and admin work eating staff hours.",
   },
   {
     title: "Automate the workflows",
@@ -18,9 +18,9 @@ const steps = [
       "Where off-the-shelf falls short, we build custom dashboards, portals, and apps around how you actually work.",
   },
   {
-    title: "Reclaim patient time",
+    title: "Reclaim your team's time",
     description:
-      "Your team spends less time on the phone and the keyboard, and more time in the treatment room.",
+      "Your team spends less time on the phone and the keyboard, and more time doing what your business does best.",
   },
 ];
 
@@ -32,8 +32,9 @@ export function HowItWorks() {
           How it works
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Automated workflows + smarter tools = more time for patient care.
-          Here&apos;s what that looks like in practice.
+          Automated workflows + smarter tools = more time to focus on what
+          your business does best. Here&apos;s what that looks like in
+          practice.
         </p>
         <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, i) => (

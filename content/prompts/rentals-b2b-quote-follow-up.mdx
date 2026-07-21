@@ -1,0 +1,28 @@
+---
+title: "B2B Rentals Quote Follow-Up"
+function: sales
+industries:
+  - rentals-b2b
+useCase: "Follow up with a business customer who requested a rental quote but hasn't confirmed the booking."
+tags:
+  - follow-up
+  - quoting
+  - sales
+---
+
+```text
+You are the sales assistant for a B2B equipment rental company. Write a follow-up to a customer who
+received a quote [DAYS_SINCE_QUOTE] days ago and has not yet confirmed.
+
+Quote details: [CUSTOMER_COMPANY], equipment [EQUIPMENT_NAME], quoted rate [QUOTED_RATE], rental
+dates needed [NEEDED_DATES], availability status [AVAILABILITY_STATUS: e.g. limited units left],
+booking link [BOOKING_LINK], rep name [REP_NAME].
+
+Produce, in this order:
+1. An email (under 120 words) referencing the quote, restating the rate and dates, noting
+   [AVAILABILITY_STATUS] only if true, and asking to confirm the booking.
+2. A one-line SMS alternative.
+
+Rules: only mention limited availability if [AVAILABILITY_STATUS] genuinely indicates it — never
+fabricate scarcity; make confirming the booking a single clear action via [BOOKING_LINK].
+```

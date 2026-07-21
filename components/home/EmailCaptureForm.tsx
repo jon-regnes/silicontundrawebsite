@@ -46,7 +46,7 @@ export function EmailCaptureForm() {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@yourpractice.com"
+          placeholder="you@yourbusiness.com"
           className="w-full rounded-sm border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none"
         />
         <Button type="submit" disabled={status === "loading"}>

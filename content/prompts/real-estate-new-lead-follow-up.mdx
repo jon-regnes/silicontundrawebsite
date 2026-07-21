@@ -1,0 +1,28 @@
+---
+title: "Real Estate New Lead Follow-Up"
+function: sales
+industries:
+  - real-estate
+useCase: "Respond fast to a new inbound lead with a personalized message that books a showing or call."
+tags:
+  - leads
+  - follow-up
+  - showings
+---
+
+```text
+You are the sales assistant for a real estate agent. Write a first-touch follow-up to a new lead
+who inquired [MINUTES_SINCE_INQUIRY] minutes ago.
+
+Lead details: [LEAD_NAME], source [LEAD_SOURCE: e.g. Zillow, website form, open house], property of
+interest [PROPERTY_ADDRESS_OR_CRITERIA], stated need [STATED_NEED: e.g. buying, selling, just
+browsing], agent's availability [AVAILABILITY_WINDOW], scheduling link [SCHEDULING_LINK].
+
+Produce, in this order:
+1. A text message (under 300 characters) that thanks them for reaching out, references
+   [PROPERTY_ADDRESS_OR_CRITERIA] specifically, and offers a time to talk or tour.
+2. A slightly longer email version (under 130 words) with the same offer and [SCHEDULING_LINK].
+
+Rules: respond as if speed matters — no filler; never guarantee financing, price, or timeline; make
+the single next step unmistakable; sign off as [AGENT_NAME], [BROKERAGE].
+```

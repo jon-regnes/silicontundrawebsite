@@ -25,7 +25,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — AI & Automation for Lifestyle Medicine`,
+    default: `${SITE_NAME} — AI & Automation for Small & Medium Business`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

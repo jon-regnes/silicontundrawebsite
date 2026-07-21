@@ -6,11 +6,11 @@ import { OG_IMAGE } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Contact — Book a Discovery Call",
   description:
-    "Get in touch with Silicon Tundra about AI receptionists, agents, automation consulting, or custom software for your lifestyle medicine practice.",
+    "Get in touch with Silicon Tundra about AI receptionists, agents, automation consulting, or custom software for your business.",
   openGraph: {
     title: "Contact Silicon Tundra",
     description:
-      "Book a discovery call about AI and automation for your practice.",
+      "Book a discovery call about AI and automation for your business.",
     images: [OG_IMAGE],
   },
 };
@@ -22,11 +22,11 @@ export default function ContactPage() {
     <Section className="pt-24">
       <Container>
         <h1 className="max-w-3xl font-heading text-4xl font-bold tracking-tight md:text-5xl">
-          Let&apos;s talk about your practice
+          Let&apos;s talk about your business
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-muted">
           A 30-minute discovery call — a straight look at the hours and revenue
-          your practice could reclaim with AI and automation.
+          your business could reclaim with AI and automation.
         </p>
         <div className="mt-12 max-w-2xl rounded-sm border border-border bg-surface p-8">
           <h2 className="font-heading text-xl font-semibold">

@@ -1,6 +1,6 @@
 ---
 name: content-schema
-description: Defines the exact MDX frontmatter schema for content/services/*.mdx, content/products/*.mdx, and content/prompts/*.mdx on the Silicon Tundra site. Use whenever adding, editing, or generating a service, product, or prompt entry, or building any component/page that reads from these collections — fields, types, and the fixed vertical-tag list must match this schema exactly or the resource pages, services page, and [vertical] routes will break.
+description: Defines the exact MDX frontmatter schema for content/services/*.mdx, content/products/*.mdx, and content/prompts/*.mdx on the Silicon Tundra site. Use whenever adding, editing, or generating a service, product, or prompt entry, or building any component/page that reads from these collections — fields, types, and the fixed function/industry lists must match this schema exactly or the resource pages, services page, and [function]/[industry] routes will break.
 ---
 
 # Content Schema — Services, Products & Prompts
@@ -31,8 +31,9 @@ grid (currently assumes 4 cards) and the `Service` JSON-LD loop in `lib/seo.ts`.
 ## `content/products/*.mdx` and `content/prompts/*.mdx`
 
 Filenames are kebab-case slugs and become the entry's URL slug (e.g.
-`content/prompts/reactivation-campaign-med-spa.mdx` → `/resources/prompts/med-spas` listing,
-individual slug if detail pages get built later).
+`content/prompts/field-services-dispatch-brief.mdx` →
+`/resources/prompts/operations/field-services-dispatch-brief` detail page, and listed on the
+`operations` function page and the `field-services` industry page).
 
 ## `content/products/*.mdx`
 
@@ -60,45 +61,61 @@ populate the card grid.
 
 ```yaml
 ---
-title: string             # e.g. "No-Show Reactivation Follow-Up"
-vertical:                 # one or more — MUST be from the fixed list below
-  - med-spa
+title: string             # e.g. "Field Services Dispatch Brief"
+function: string          # exactly one — MUST be from the fixed Function list below
+industries:                # one or more — MUST be from the fixed Industry list below
+  - field-services
 useCase: string           # 1 sentence — when/why to use this prompt
 tags:
-  - string                # free-form, additional filter tags beyond vertical
+  - string                # free-form, additional filter tags beyond function/industries
 ---
 
 <prompt text goes in the MDX body, in a fenced code block or blockquote so the "Copy prompt"
 button can target it cleanly>
 ```
 
-### Fixed `vertical` tag list — do not deviate
+### Fixed `function` list — do not deviate
 
-Only these eight values are valid. Each one maps 1:1 to a generated route at
-`/resources/prompts/[vertical]`. Adding a new tag value here means adding a new route — don't
-introduce a new tag casually. (The list lives in code at `lib/verticals.ts` — update both
+Exactly one value per prompt. Each value maps 1:1 to a generated function landing route at
+`/resources/prompts/[function]`, and prompt detail pages live under
+`/resources/prompts/[function]/[slug]`. Adding a new value here means adding a new route — don't
+introduce one casually. (The list lives in code at `lib/taxonomy.ts` (`FUNCTIONS`) — update both
 together.)
 
-| Tag value | Maps to |
+| Value | Maps to |
 |---|---|
-| `iv-wellness` | IV Wellness Clinics |
-| `trt` | TRT / Men's Health Clinics |
-| `chiropractic` | Chiropractors |
-| `dental-ortho` | Dental / Orthodontic Offices |
-| `med-spa` | Med Spas |
-| `functional-medicine` | Functional Medicine Clinics |
-| `longevity-medicine` | Longevity Clinics |
-| `medical-weight-loss` | Medical Weight Loss Clinics |
+| `operations` | Operations |
+| `marketing` | Marketing |
+| `sales` | Sales |
 
-A prompt can carry multiple vertical tags if it genuinely applies to more than one (e.g. a generic
-"review request" prompt might apply to all five) — the `[vertical]` page for each tag should then
-include that entry.
+### Fixed `industries` list — do not deviate
+
+One or more values per prompt. Each value maps 1:1 to a generated industry landing route at
+`/resources/prompts/industries/[industry]`. Adding a new value here means adding a new route —
+don't introduce one casually. (The list lives in code at `lib/taxonomy.ts` (`INDUSTRIES`) — update
+both together.)
+
+| Value | Maps to |
+|---|---|
+| `field-services` | Home, Commercial & Field Services |
+| `real-estate` | Real Estate |
+| `manufacturing` | Specialty Manufacturing & Industrial |
+| `lifestyle-medicine` | Lifestyle Medicine |
+| `logistics` | Logistics |
+| `rentals-b2b` | Rentals & B2B Operations |
+| `pet-care` | Animal & Pet Care |
+| `agriculture` | Agriculture & Extraction |
+
+A prompt can carry multiple industry values if it genuinely applies to more than one (e.g. a
+generic "review request" prompt might apply to several) — the industry landing page for each value
+should then include that entry.
 
 ## Adding a new entry
 
 1. Create the `.mdx` file with the correct frontmatter shape above — validate every required field
    is present.
-2. For prompts, confirm every `vertical` value is from the fixed list.
+2. For prompts, confirm `function` is a single value from the fixed Function list, and every
+   `industries` value is from the fixed Industry list.
 3. No code changes needed for a new entry to appear — the content loader in `lib/content.ts` reads
    the whole directory. If a new field is genuinely needed, add it here first, then to the loader
    types, then backfill existing entries — don't add ad hoc fields to one file only.

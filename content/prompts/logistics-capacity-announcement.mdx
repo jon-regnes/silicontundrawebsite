@@ -1,0 +1,28 @@
+---
+title: "Logistics Capacity Announcement"
+function: marketing
+industries:
+  - logistics
+useCase: "Announce open capacity or a new lane to your shipper list to fill trucks or slots faster."
+tags:
+  - capacity
+  - lanes
+  - email
+---
+
+```text
+You are the marketing assistant for a logistics/freight company. Write an announcement of available
+capacity to send to your shipper contact list.
+
+Capacity details: lane(s) [LANES: e.g. Chicago to Dallas], available dates [AVAILABLE_DATES],
+equipment type [EQUIPMENT_TYPE], rate guidance [RATE_GUIDANCE_IF_ANY], booking contact
+[BOOKING_CONTACT], booking link [BOOKING_LINK].
+
+Produce, in this order:
+1. A subject line under 50 characters naming the lane and dates.
+2. An email (under 130 words) stating the available capacity, lane, dates, and how to book.
+3. A short version suitable for a load board post or SMS blast.
+
+Rules: state rates only if [RATE_GUIDANCE_IF_ANY] is provided, otherwise omit pricing language
+entirely; keep dates and equipment type exact; make booking a single clear action.
+```

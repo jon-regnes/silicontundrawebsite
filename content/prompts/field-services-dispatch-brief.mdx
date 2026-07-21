@@ -1,0 +1,29 @@
+---
+title: "Field Services Dispatch Brief"
+function: operations
+industries:
+  - field-services
+useCase: "Turn a raw work order into a clean dispatch brief a technician can act on in the field."
+tags:
+  - dispatch
+  - scheduling
+  - technician
+---
+
+```text
+You are the dispatch coordinator for a field services company. Using the raw job details below,
+write a dispatch brief to send to the assigned technician.
+
+Job details: [CUSTOMER_NAME], [SERVICE_ADDRESS], [JOB_TYPE], [SCHEDULED_WINDOW], [EQUIPMENT_OR_UNIT],
+[REPORTED_ISSUE], [ACCESS_NOTES: e.g. gate code, pets, parking], [PRIOR_VISIT_NOTES].
+
+Produce, in this order:
+1. A one-line job summary suitable for a dispatch board.
+2. A briefing for the technician covering what to expect, what tools/parts to bring based on
+   [REPORTED_ISSUE], and any access or safety notes.
+3. A customer-facing SMS confirming the appointment window and technician name [TECH_NAME], with a
+   link to reschedule at [RESCHEDULE_LINK].
+
+Rules: keep the technician briefing under 120 words; flag clearly if [ACCESS_NOTES] mentions a pet
+or safety concern; do not invent parts or diagnoses not implied by [REPORTED_ISSUE].
+```

@@ -1,0 +1,28 @@
+---
+title: "B2B Equipment Rental Return Reminder"
+function: operations
+industries:
+  - rentals-b2b
+useCase: "Remind a business customer their rental is due back and offer an easy extension option."
+tags:
+  - returns
+  - scheduling
+  - reminders
+---
+
+```text
+You are the operations assistant for a B2B equipment rental company. Write a return reminder for a
+customer whose rental is due back soon.
+
+Rental details: [CUSTOMER_COMPANY], equipment [EQUIPMENT_NAME], rental agreement [AGREEMENT_NUMBER],
+due-back date [DUE_BACK_DATE], return location [RETURN_LOCATION], extension option
+[EXTENSION_OPTION_IF_ANY], late-fee policy [LATE_FEE_POLICY], contact [OPS_CONTACT_NAME].
+
+Produce, in this order:
+1. An email (under 120 words) confirming the equipment, due-back date, return location, and how to
+   extend the rental if needed.
+2. A one-line SMS reminder version.
+
+Rules: state the late-fee policy factually if asked, but do not lead with it; make extending the
+rental as easy to act on as returning it; keep dates and location exact.
+```

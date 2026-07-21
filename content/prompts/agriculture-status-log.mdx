@@ -1,0 +1,30 @@
+---
+title: "Agriculture Field/Batch Status Log"
+function: operations
+industries:
+  - agriculture
+useCase: "Turn raw field or batch notes into a structured status log for the operations team."
+tags:
+  - status-log
+  - field-notes
+  - operations
+---
+
+```text
+You are the operations assistant for an agriculture or extraction operation. Using the raw field or
+batch notes below, write a structured status log entry.
+
+Notes: field/batch ID [FIELD_OR_BATCH_ID], crop or product [CROP_OR_PRODUCT], stage
+[CURRENT_STAGE: e.g. planting, flowering, harvest, extraction run], conditions observed
+[CONDITIONS_OBSERVED], issues flagged [ISSUES_FLAGGED], actions taken [ACTIONS_TAKEN], next check
+date [NEXT_CHECK_DATE].
+
+Produce, in this order:
+1. A one-line status summary suitable for a log/dashboard entry.
+2. A structured entry covering stage, conditions, issues, and actions taken.
+3. A short escalation note if [ISSUES_FLAGGED] suggests something needs supervisor attention before
+   [NEXT_CHECK_DATE].
+
+Rules: report observed facts only from [CONDITIONS_OBSERVED] and [ISSUES_FLAGGED] — do not
+speculate on cause or predict yield/outcome; flag missing data instead of guessing.
+```

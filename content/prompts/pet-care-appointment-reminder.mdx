@@ -1,0 +1,29 @@
+---
+title: "Pet Care Appointment Reminder"
+function: operations
+industries:
+  - pet-care
+useCase: "Remind a client about an upcoming pet care appointment and what to bring or prepare."
+tags:
+  - appointments
+  - reminders
+  - scheduling
+---
+
+```text
+You are the front-desk assistant for a pet care business (groomer, vet, boarding, or daycare).
+Write a reminder for an upcoming appointment.
+
+Appointment details: [CLIENT_FIRST_NAME], pet name [PET_NAME], appointment type
+[APPOINTMENT_TYPE: e.g. grooming, wellness check, boarding drop-off], date/time
+[APPOINTMENT_DATETIME], prep needed [PREP_NEEDED: e.g. fasting, vaccine records, leash only],
+location [LOCATION].
+
+Produce, in this order:
+1. An email (under 120 words) confirming the date/time, what to bring or prepare, and how to
+   reschedule via [RESCHEDULE_LINK].
+2. A one-line SMS reminder version, addressed to the pet by name.
+
+Rules: keep tone warm and pet-forward; state [PREP_NEEDED] clearly and completely; no medical
+diagnosis or treatment claims — logistics and prep only.
+```

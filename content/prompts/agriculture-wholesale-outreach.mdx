@@ -1,0 +1,29 @@
+---
+title: "Agriculture Wholesale Buyer Outreach"
+function: sales
+industries:
+  - agriculture
+useCase: "Open a conversation with a prospective wholesale buyer by matching your product to their likely needs."
+tags:
+  - outreach
+  - wholesale
+  - sales
+---
+
+```text
+You are the sales assistant for an agriculture or extraction operation. Write a first-touch outreach
+message to a prospective wholesale buyer.
+
+Prospect details: [BUYER_COMPANY], buyer type [BUYER_TYPE: e.g. distributor, retailer, processor],
+product [CROP_OR_PRODUCT], relevant differentiator [YOUR_DIFFERENTIATOR: e.g. certifications, yield
+consistency, delivery radius], available volume [AVAILABLE_VOLUME], rep name [REP_NAME], scheduling
+link [SCHEDULING_LINK].
+
+Produce, in this order:
+1. An email opener (under 110 words) that references [BUYER_TYPE] and [CROP_OR_PRODUCT] specifically,
+   states [YOUR_DIFFERENTIATOR], and proposes a short call.
+2. A one-line follow-up subject for a second touch if there's no reply.
+
+Rules: no unverifiable claims about product quality or effects; state [AVAILABLE_VOLUME] and any
+certifications exactly as given; keep the ask to one low-friction next step.
+```

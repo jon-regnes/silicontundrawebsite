@@ -1,9 +1,10 @@
 # Silicon Tundra
 
-> Silicon Tundra is the AI and Automation Navigator for Lifestyle Medicine. We help med spas,
-> plastic surgery practices, chiropractors, dental and orthodontic offices, IV wellness clinics,
-> and men's health/TRT clinics automate workflows and adopt smarter tools — so their teams spend
-> more time on patient care.
+> Silicon Tundra is the AI and Automation Navigator for small and medium businesses. We help
+> home, commercial & field services companies, real estate professionals, specialty manufacturers,
+> lifestyle medicine practices, logistics operators, rental & B2B operations, animal & pet care
+> businesses, and agriculture & extraction operators automate workflows and adopt smarter tools —
+> so their teams spend more time on what their business does best.
 
 Website: https://www.silicontundrallc.com
 Contact: jon@silicontundrallc.com
@@ -11,13 +12,13 @@ Contact: jon@silicontundrallc.com
 ## Services
 
 - The 24/7 Receptionist — AI receptionist systems that answer every inbound call, qualify leads,
-  book appointments, and respond after hours so no patient hits voicemail.
+  book appointments, and respond after hours so no customer hits voicemail.
   https://www.silicontundrallc.com/services#receptionist
-- AI Agent Development — custom AI agents for patient follow-up, intake reminders, reactivation
+- AI Agent Development — custom AI agents for customer follow-up, reminders, reactivation
   campaigns, lead qualification, review requests, and internal admin workflows.
   https://www.silicontundrallc.com/services#agents
 - AI & Automation Consulting — audits that find wasted hours, missed revenue, and manual
-  workflows inside lifestyle medicine practices.
+  workflows inside small and medium businesses.
   https://www.silicontundrallc.com/services#consulting
 - AI Product Studio — custom web apps (dashboards, client portals, booking tools, lead
   management, MVPs) built from your workflows. You bring the problem; we build the product.
@@ -25,20 +26,25 @@ Contact: jon@silicontundrallc.com
 
 ## Free resources
 
-- Researched Products — curated AI/automation tools for medical practices, with honest pros and
-  cons: https://www.silicontundrallc.com/resources/products
-- Prompt Library — plug-and-play AI prompts organized by vertical:
+- Researched Products — curated AI/automation tools for small and medium businesses, with honest
+  pros and cons: https://www.silicontundrallc.com/resources/products
+- Prompt Library — plug-and-play AI prompts organized by function and by industry:
   https://www.silicontundrallc.com/resources/prompts
-  - Med spas: https://www.silicontundrallc.com/resources/prompts/med-spa
-  - IV wellness clinics: https://www.silicontundrallc.com/resources/prompts/iv-wellness
-  - TRT / men's health clinics: https://www.silicontundrallc.com/resources/prompts/trt
-  - Chiropractors: https://www.silicontundrallc.com/resources/prompts/chiropractic
-  - Dental / orthodontic offices: https://www.silicontundrallc.com/resources/prompts/dental-ortho
-  - Functional medicine clinics: https://www.silicontundrallc.com/resources/prompts/functional-medicine
-  - Longevity clinics: https://www.silicontundrallc.com/resources/prompts/longevity-medicine
-  - Medical weight loss clinics: https://www.silicontundrallc.com/resources/prompts/medical-weight-loss
+  - By function:
+    - Operations: https://www.silicontundrallc.com/resources/prompts/operations
+    - Marketing: https://www.silicontundrallc.com/resources/prompts/marketing
+    - Sales: https://www.silicontundrallc.com/resources/prompts/sales
+  - By industry:
+    - Home, Commercial & Field Services: https://www.silicontundrallc.com/resources/prompts/industries/field-services
+    - Real Estate: https://www.silicontundrallc.com/resources/prompts/industries/real-estate
+    - Specialty Manufacturing & Industrial: https://www.silicontundrallc.com/resources/prompts/industries/manufacturing
+    - Lifestyle Medicine: https://www.silicontundrallc.com/resources/prompts/industries/lifestyle-medicine
+    - Logistics: https://www.silicontundrallc.com/resources/prompts/industries/logistics
+    - Rentals & B2B Operations: https://www.silicontundrallc.com/resources/prompts/industries/rentals-b2b
+    - Animal & Pet Care: https://www.silicontundrallc.com/resources/prompts/industries/pet-care
+    - Agriculture & Extraction: https://www.silicontundrallc.com/resources/prompts/industries/agriculture
 
 ## Booking
 
-Practice owners can book a 30-minute discovery call:
+Business owners can book a 30-minute discovery call:
 https://www.silicontundrallc.com/contact

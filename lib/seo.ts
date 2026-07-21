@@ -6,7 +6,7 @@ export const SITE_URL =
 export const SITE_NAME = "Silicon Tundra";
 
 export const SITE_DESCRIPTION =
-  "Silicon Tundra is the AI and Automation Navigator for lifestyle medicine — AI receptionists, custom agents, automation consulting, and custom software for med spas, chiropractors, dental offices, IV wellness, and TRT clinics.";
+  "Silicon Tundra is the AI and Automation Navigator for small and medium businesses — AI receptionists, custom agents, automation consulting, and custom software for field services, real estate, manufacturing, lifestyle medicine, logistics, rentals & B2B operations, pet care, and agriculture businesses.";
 
 /** Default OpenGraph image — referenced by every page's openGraph.images. */
 export const OG_IMAGE = "/images/og/og-image.jpg";
@@ -26,16 +26,17 @@ export function organizationJsonLd() {
     knowsAbout: [
       "AI receptionists",
       "AI agents",
-      "practice automation",
-      "lifestyle medicine",
-      "med spas",
-      "chiropractic clinics",
-      "dental and orthodontic offices",
-      "IV wellness clinics",
-      "TRT and men's health clinics",
-      "functional medicine clinics",
-      "longevity clinics",
-      "medical weight loss clinics",
+      "operations automation",
+      "marketing automation",
+      "sales automation",
+      "Home, Commercial & Field Services",
+      "Real Estate",
+      "Specialty Manufacturing & Industrial",
+      "Lifestyle Medicine",
+      "Logistics",
+      "Rentals & B2B Operations",
+      "Animal & Pet Care",
+      "Agriculture & Extraction",
     ],
   };
 }
@@ -56,7 +57,7 @@ export function serviceJsonLd(service: Service) {
     audience: {
       "@type": "Audience",
       audienceType:
-        "Lifestyle medicine businesses: med spas, plastic surgery practices, chiropractors, dental and orthodontic offices, IV wellness clinics, men's health/TRT clinics",
+        "Small and medium businesses: field services, real estate, specialty manufacturing, lifestyle medicine, logistics, rentals & B2B operations, animal & pet care, and agriculture businesses",
     },
   };
 }

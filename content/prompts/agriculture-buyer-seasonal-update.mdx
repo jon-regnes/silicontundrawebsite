@@ -1,0 +1,30 @@
+---
+title: "Agriculture Buyer Seasonal Update"
+function: marketing
+industries:
+  - agriculture
+useCase: "Give wholesale buyers a seasonal update on crop availability and upcoming harvest timing."
+tags:
+  - seasonal
+  - buyers
+  - email
+---
+
+```text
+You are the marketing assistant for an agriculture or extraction operation. Write a seasonal update
+to send to your wholesale buyer list.
+
+Update details: crop/product [CROP_OR_PRODUCT], current season/stage [SEASON_OR_STAGE], expected
+availability window [AVAILABILITY_WINDOW], volume estimate [VOLUME_ESTIMATE_IF_KNOWN], quality notes
+[QUALITY_NOTES], contact for orders [ORDER_CONTACT], order link [ORDER_LINK].
+
+Produce, in this order:
+1. A subject line under 50 characters naming the crop/product and season.
+2. An email (under 140 words) giving the availability window, volume estimate (if known), and how
+   to place or reserve an order.
+3. A short version suitable for a text blast to key buyers.
+
+Rules: state [VOLUME_ESTIMATE_IF_KNOWN] as an estimate, never a guarantee; do not make
+health/nutrition claims about the product; keep availability dates realistic and hedged
+appropriately.
+```

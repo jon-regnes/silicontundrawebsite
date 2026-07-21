@@ -10,22 +10,25 @@ import { getPrompts, getServices, type Prompt } from "@/lib/content";
 import { OG_IMAGE } from "@/lib/seo";
 
 /**
- * Pick `count` random prompts, each from a different vertical. Runs at build
- * time (page is static), so the selection rotates per deploy, not per visit.
- * Prompts tagged to many verticals are skipped so the teaser cards stay clean.
+ * Pick `count` random prompts, favoring a mix of distinct functions. Runs at
+ * build time (page is static), so the selection rotates per deploy, not per
+ * visit. Flagship prompts tagged to many industries are skipped so the
+ * teaser cards keep a clean single-badge look, unless too few remain.
  */
 function pickFeaturedPrompts(prompts: Prompt[], count = 3): Prompt[] {
   const shuffled = [...prompts].sort(() => Math.random() - 0.5);
+  const singleIndustry = shuffled.filter((p) => p.industries.length <= 1);
+  const pool = singleIndustry.length >= count ? singleIndustry : shuffled;
+
   const picked: Prompt[] = [];
-  const usedVerticals = new Set<string>();
-  for (const prompt of shuffled) {
+  const usedFunctions = new Set<string>();
+  for (const prompt of pool) {
     if (picked.length === count) break;
-    if (prompt.vertical.length === 0 || prompt.vertical.length > 2) continue;
-    if (prompt.vertical.some((v) => usedVerticals.has(v))) continue;
+    if (usedFunctions.has(prompt.function)) continue;
     picked.push(prompt);
-    prompt.vertical.forEach((v) => usedVerticals.add(v));
+    usedFunctions.add(prompt.function);
   }
-  for (const prompt of shuffled) {
+  for (const prompt of pool) {
     if (picked.length === count) break;
     if (!picked.includes(prompt)) picked.push(prompt);
   }
@@ -33,13 +36,13 @@ function pickFeaturedPrompts(prompts: Prompt[], count = 3): Prompt[] {
 }
 
 export const metadata: Metadata = {
-  title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
+  title: "Silicon Tundra — AI & Automation for Small & Medium Business",
   description:
-    "AI receptionists, custom agents, automation consulting, and custom software for med spas, chiropractors, dental offices, IV wellness, and TRT clinics. Book a discovery call.",
+    "AI receptionists, custom agents, automation consulting, and custom software for field services, real estate, manufacturing, lifestyle medicine, logistics, rentals & B2B, pet care, and agriculture businesses. Book a discovery call.",
   openGraph: {
-    title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
+    title: "Silicon Tundra — AI & Automation for Small & Medium Business",
     description:
-      "Automated workflows + smarter tools = more time to focus on patient care.",
+      "Automated workflows + smarter tools = more time to focus on what your business does best.",
     images: [OG_IMAGE],
   },
 };
