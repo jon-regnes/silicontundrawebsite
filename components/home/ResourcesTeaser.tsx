@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { VerticalBadges } from "@/components/resources/VerticalBadges";
+import { IndustryBadges } from "@/components/resources/IndustryBadges";
 import type { Prompt } from "@/lib/content";
+import { FUNCTIONS } from "@/lib/taxonomy";
 
 export function ResourcesTeaser({ prompts }: { prompts: Prompt[] }) {
   return (
@@ -30,11 +32,16 @@ export function ResourcesTeaser({ prompts }: { prompts: Prompt[] }) {
           {prompts.map((prompt) => (
             <Link
               key={prompt.slug}
-              href={`/resources/prompts/${prompt.vertical[0]}/${prompt.slug}`}
+              href={`/resources/prompts/${prompt.function}/${prompt.slug}`}
               className="group"
             >
               <Card className="h-full transition-colors group-hover:border-accent">
-                <VerticalBadges verticals={prompt.vertical} />
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge className="border-accent bg-accent text-background">
+                    {FUNCTIONS[prompt.function]}
+                  </Badge>
+                  <IndustryBadges industries={prompt.industries} />
+                </div>
                 <h3 className="mt-4 font-heading text-lg font-semibold group-hover:text-accent">
                   {prompt.title}
                 </h3>

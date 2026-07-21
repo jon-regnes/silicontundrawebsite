@@ -1,16 +1,23 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import type { Prompt } from "@/lib/content";
-import { VerticalBadges } from "./VerticalBadges";
+import { FUNCTIONS } from "@/lib/taxonomy";
+import { IndustryBadges } from "./IndustryBadges";
 
 export function PromptCard({ prompt }: { prompt: Prompt }) {
   return (
     <Link
-      href={`/resources/prompts/${prompt.vertical[0]}/${prompt.slug}`}
+      href={`/resources/prompts/${prompt.function}/${prompt.slug}`}
       className="group"
     >
       <Card className="flex h-full flex-col transition-colors group-hover:border-accent">
-        <VerticalBadges verticals={prompt.vertical} />
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge className="border-accent bg-accent text-background">
+            {FUNCTIONS[prompt.function]}
+          </Badge>
+          <IndustryBadges industries={prompt.industries} />
+        </div>
         <h3 className="mt-4 font-heading text-lg font-semibold group-hover:text-accent">
           {prompt.title}
         </h3>

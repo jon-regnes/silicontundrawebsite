@@ -2,33 +2,64 @@
 
 import { useState } from "react";
 import type { Prompt } from "@/lib/content";
-import { VERTICALS, type Vertical } from "@/lib/verticals";
+import {
+  FUNCTIONS,
+  INDUSTRIES,
+  type Industry,
+  type PromptFunction,
+} from "@/lib/taxonomy";
 import { PromptCard } from "./PromptCard";
 
 export function PromptGrid({ prompts }: { prompts: Prompt[] }) {
-  const [active, setActive] = useState<Vertical | null>(null);
-  const visible = active
-    ? prompts.filter((p) => p.vertical.includes(active))
-    : prompts;
+  const [activeFunction, setActiveFunction] = useState<PromptFunction | null>(
+    null,
+  );
+  const [activeIndustry, setActiveIndustry] = useState<Industry | null>(null);
+
+  const visible = prompts.filter((p) => {
+    const matchesFunction = activeFunction === null || p.function === activeFunction;
+    const matchesIndustry =
+      activeIndustry === null || p.industries.includes(activeIndustry);
+    return matchesFunction && matchesIndustry;
+  });
 
   return (
     <div>
       <div
         className="flex flex-wrap gap-2"
         role="group"
-        aria-label="Filter by vertical"
+        aria-label="Filter by function"
       >
         <FilterButton
           label="All"
-          active={active === null}
-          onClick={() => setActive(null)}
+          active={activeFunction === null}
+          onClick={() => setActiveFunction(null)}
         />
-        {(Object.keys(VERTICALS) as Vertical[]).map((vertical) => (
+        {(Object.keys(FUNCTIONS) as PromptFunction[]).map((fn) => (
           <FilterButton
-            key={vertical}
-            label={VERTICALS[vertical]}
-            active={active === vertical}
-            onClick={() => setActive(vertical)}
+            key={fn}
+            label={FUNCTIONS[fn]}
+            active={activeFunction === fn}
+            onClick={() => setActiveFunction(fn)}
+          />
+        ))}
+      </div>
+      <div
+        className="mt-4 flex flex-wrap gap-2"
+        role="group"
+        aria-label="Filter by industry"
+      >
+        <FilterButton
+          label="All"
+          active={activeIndustry === null}
+          onClick={() => setActiveIndustry(null)}
+        />
+        {(Object.keys(INDUSTRIES) as Industry[]).map((industry) => (
+          <FilterButton
+            key={industry}
+            label={INDUSTRIES[industry]}
+            active={activeIndustry === industry}
+            onClick={() => setActiveIndustry(industry)}
           />
         ))}
       </div>
@@ -37,6 +68,11 @@ export function PromptGrid({ prompts }: { prompts: Prompt[] }) {
           <PromptCard key={prompt.slug} prompt={prompt} />
         ))}
       </div>
+      {visible.length === 0 && (
+        <p className="mt-12 text-muted">
+          No prompts match this combination yet — check back soon.
+        </p>
+      )}
     </div>
   );
 }
