@@ -12,9 +12,9 @@ needs the following before it's considered complete.
 ## 1. Per-page metadata (required on every route)
 
 Use the Next.js Metadata API. Every `page.tsx` needs a unique `title` and `description` — never
-inherit the root layout's generic metadata. For dynamic routes (`[vertical]`, `[slug]`), use
-`generateMetadata()` so each generated page gets its own unique title/description pulled from the
-content's frontmatter, not a templated generic string.
+inherit the root layout's generic metadata. For dynamic routes (`[function]`, `[industry]`,
+`[slug]`), use `generateMetadata()` so each generated page gets its own unique title/description
+pulled from the content's frontmatter, not a templated generic string.
 
 ```ts
 export const metadata: Metadata = {
@@ -41,9 +41,9 @@ than prose. When in doubt, add schema rather than skip it.
 ## 3. Sitemap & robots
 
 `app/sitemap.ts` and `app/robots.ts` must stay dynamic — they should enumerate all MDX content
-(every product, every prompt, every `[vertical]` page) by reading `content/` at build time, not a
-hardcoded list. When a new content type or route segment is added, update the sitemap generator in
-the same change, not as a follow-up.
+(every product, every prompt, every `[function]` and `[industry]` page) by reading `content/` at
+build time, not a hardcoded list. When a new content type or route segment is added, update the
+sitemap generator in the same change, not as a follow-up.
 
 ## 4. `llms.txt`
 
@@ -52,12 +52,23 @@ does, who it serves, and links to key pages (services, resources, contact). Keep
 services or major resource categories change — treat it as equally important as the sitemap, not
 an afterthought.
 
-## 5. Vertical-specific landing pages
+## 5. Function and industry landing pages
 
-The `/resources/prompts/[vertical]` pages exist specifically for long-tail SEO/AEO — each vertical
-(IV wellness, TRT, chiropractic, dental/ortho, med spa) needs its own indexable, crawlable URL with
-real content, not just a client-side filtered view of the same page. If a new vertical is ever
-added, it needs its own generated route, not just a new filter tag.
+The prompt library is organized along two dimensions, and both exist specifically for long-tail
+SEO/AEO:
+
+- **Function landing pages** — `/resources/prompts/[function]` (`operations`, `marketing`,
+  `sales`). Each needs its own indexable, crawlable URL with real content, not just a client-side
+  filtered view of the same page.
+- **Industry landing pages** — `/resources/prompts/industries/[industry]`, one per industry in
+  `lib/taxonomy.ts` (field services, real estate, manufacturing, lifestyle medicine, logistics,
+  rentals & B2B, pet care, agriculture). Same requirement — indexable, crawlable, real content.
+- **Prompt detail pages** — the canonical URL for an individual prompt is
+  `/resources/prompts/[function]/[slug]`; industry pages link out to prompts at their canonical
+  function URL rather than duplicating content at a separate industry URL.
+
+If a new function or industry is ever added, it needs its own generated route, not just a new
+filter tag.
 
 ## 6. Semantic HTML & Core Web Vitals
 
