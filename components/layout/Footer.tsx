@@ -17,8 +17,9 @@ export function Footer() {
         <div className="space-y-4">
           <Logo />
           <p className="max-w-xs text-sm text-muted">
-            The AI and Automation Navigator for Lifestyle Medicine. Automated
-            workflows + smarter tools = more time to focus on patient care.
+            The AI and Automation Navigator for Small &amp; Medium Business.
+            Automated workflows + smarter tools = more time to focus on what
+            your business does best.
           </p>
         </div>
         <nav aria-label="Footer">
@@ -43,7 +44,8 @@ export function Footer() {
             Join the list
           </h2>
           <p className="mt-4 text-sm text-muted">
-            Practical AI &amp; automation ideas for lifestyle medicine practices.
+            Practical AI &amp; automation ideas for small and medium
+            businesses.
           </p>
           <div className="mt-4">
             <EmailCaptureForm />

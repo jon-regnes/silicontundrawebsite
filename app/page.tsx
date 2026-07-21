@@ -36,13 +36,13 @@ function pickFeaturedPrompts(prompts: Prompt[], count = 3): Prompt[] {
 }
 
 export const metadata: Metadata = {
-  title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
+  title: "Silicon Tundra — AI & Automation for Small & Medium Business",
   description:
-    "AI receptionists, custom agents, automation consulting, and custom software for med spas, chiropractors, dental offices, IV wellness, and TRT clinics. Book a discovery call.",
+    "AI receptionists, custom agents, automation consulting, and custom software for field services, real estate, manufacturing, lifestyle medicine, logistics, rentals & B2B, pet care, and agriculture businesses. Book a discovery call.",
   openGraph: {
-    title: "Silicon Tundra — AI & Automation for Lifestyle Medicine",
+    title: "Silicon Tundra — AI & Automation for Small & Medium Business",
     description:
-      "Automated workflows + smarter tools = more time to focus on patient care.",
+      "Automated workflows + smarter tools = more time to focus on what your business does best.",
     images: [OG_IMAGE],
   },
 };

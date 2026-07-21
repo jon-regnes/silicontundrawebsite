@@ -13,8 +13,8 @@ export function EmailCaptureBand() {
                 Join the list
               </h2>
               <p className="mt-2 max-w-md text-sm text-muted">
-                Practical AI &amp; automation ideas for lifestyle medicine
-                practices — no fluff, unsubscribe anytime.
+                Practical AI &amp; automation ideas for small and medium
+                businesses — no fluff, unsubscribe anytime.
               </p>
             </div>
             <EmailCaptureForm />

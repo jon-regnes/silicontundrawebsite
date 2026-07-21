@@ -17,8 +17,8 @@ export function ResourcesTeaser({ prompts }: { prompts: Prompt[] }) {
               Free resources
             </h2>
             <p className="mt-4 max-w-2xl text-muted">
-              Researched tools and plug-and-play AI prompts, built for
-              lifestyle medicine practices.
+              Researched tools and plug-and-play AI prompts, built for small
+              and medium businesses.
             </p>
           </div>
           <Link
