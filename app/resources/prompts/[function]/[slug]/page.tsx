@@ -69,7 +69,9 @@ export default async function PromptDetailPage({ params }: Props) {
           / {prompt.title}
         </nav>
         <div className="mt-6 flex flex-wrap gap-2">
-          <Badge>{functionLabel}</Badge>
+          <Badge className="border-accent bg-accent text-background">
+            {functionLabel}
+          </Badge>
           {prompt.industries.map((industry) => (
             <Badge key={industry}>{INDUSTRIES[industry]}</Badge>
           ))}
