@@ -115,7 +115,7 @@ export default async function IndustryPromptsPage({ params }: Props) {
             workflows like these automatically for {label.toLowerCase()}.
           </p>
           <div className="mt-6">
-            <Button href="/contact">Book a Discovery Call</Button>
+            <Button href="/book">Book a Discovery Call</Button>
           </div>
         </div>
       </Container>

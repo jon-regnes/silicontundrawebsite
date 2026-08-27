@@ -112,7 +112,7 @@ export default async function PromptDetailPage({ params }: Props) {
             automatically — no copy-pasting required.
           </p>
           <div className="mt-6">
-            <Button href="/contact">Book a Discovery Call</Button>
+            <Button href="/book">Book a Discovery Call</Button>
           </div>
         </div>
       </Container>

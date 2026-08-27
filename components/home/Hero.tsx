@@ -19,7 +19,7 @@ export function Hero() {
           B2B, pet care, and agriculture run leaner and grow faster.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button href="/contact">Book a Discovery Call</Button>
+          <Button href="/book">Book a Discovery Call</Button>
           <Button href="/services" variant="secondary">
             See Services
           </Button>

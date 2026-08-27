@@ -14,7 +14,7 @@ export function BookingCTA() {
           the hours and revenue your business could reclaim.
         </p>
         <div className="mt-8">
-          <Button href="/contact">Book a Discovery Call</Button>
+          <Button href="/book">Book a Discovery Call</Button>
         </div>
       </Container>
     </Section>

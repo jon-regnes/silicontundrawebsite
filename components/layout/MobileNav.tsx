@@ -51,7 +51,7 @@ export function MobileNav() {
                 {link.label}
               </Link>
             ))}
-            <Button href="/contact" className="mt-2 w-full">
+            <Button href="/book" className="mt-2 w-full">
               Book a Call
             </Button>
           </nav>

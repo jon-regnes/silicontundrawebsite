@@ -114,7 +114,7 @@ export default async function FunctionPromptsPage({ params }: Props) {
             {label.toLowerCase()} workflows like these automatically.
           </p>
           <div className="mt-6">
-            <Button href="/contact">Book a Discovery Call</Button>
+            <Button href="/book">Book a Discovery Call</Button>
           </div>
         </div>
       </Container>

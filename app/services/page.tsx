@@ -66,7 +66,7 @@ export default function ServicesPage() {
               <MDXRemote source={service.body} components={mdxComponents} />
             </div>
             <div className="mt-8">
-              <Button href="/contact">Book a Discovery Call</Button>
+              <Button href="/book">Book a Discovery Call</Button>
             </div>
           </Container>
         </Section>

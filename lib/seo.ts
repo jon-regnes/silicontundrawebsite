@@ -11,6 +11,15 @@ export const SITE_DESCRIPTION =
 /** Default OpenGraph image — referenced by every page's openGraph.images. */
 export const OG_IMAGE = "/images/og/og-image.jpg";
 
+/**
+ * Google Appointment Scheduling page for the 30-minute discovery call.
+ * Public URL (not a secret); override per-environment with NEXT_PUBLIC_BOOKING_URL.
+ * The /book page appends `?gv=true` to embed it in an iframe.
+ */
+export const BOOKING_URL =
+  process.env.NEXT_PUBLIC_BOOKING_URL ??
+  "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1SRpS-KyRIqGH1q7sy_5IWni1rcgUVqjhVh0EPhAQ9feWLrhmjwN-1UfSFgxLPZ5AV9dC27u5w";
+
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
