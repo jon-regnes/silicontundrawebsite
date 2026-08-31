@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BookingCTA } from "@/components/home/BookingCTA";
+import { EbookCTA } from "@/components/home/EbookCTA";
 import { EmailCaptureBand } from "@/components/home/EmailCaptureBand";
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -58,6 +59,7 @@ export default function HomePage() {
       <ServicesPreview services={services} />
       <HowItWorks />
       <ResourcesTeaser prompts={featuredPrompts} />
+      <EbookCTA />
       <EmailCaptureBand />
       <BookingCTA />
     </>

@@ -1,9 +1,15 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import {
+  createRateLimiter,
+  destinationEmail,
+  EMAIL_RE,
+  escapeHtml,
+  getClientIp,
+  getTransporter,
+} from "@/lib/mailer";
 
 // Nodemailer needs the Node runtime (not edge). On Railway this runs in the
-// persistent server, so the transporter and rate-limit state are reused across
-// requests.
+// persistent server, so the transporter and rate-limit state are reused.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -15,52 +21,10 @@ interface ContactPayload {
   company?: string; // honeypot — real users never see or fill this
 }
 
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// Simple in-memory rate limit: max submissions per IP per window. Persistent on
-// Railway's long-running process (would reset per-invocation on serverless).
-const RATE_LIMIT = 5;
-const WINDOW_MS = 10 * 60 * 1000;
-const hits = new Map<string, number[]>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  recent.push(now);
-  hits.set(ip, recent);
-  return recent.length > RATE_LIMIT;
-}
-
-let transporter: nodemailer.Transporter | null = null;
-
-function getTransporter() {
-  if (transporter) return transporter;
-  const user = process.env.GMAIL_USER;
-  const pass = process.env.GMAIL_APP_PASSWORD;
-  if (!user || !pass) return null;
-  transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: { user, pass },
-  });
-  return transporter;
-}
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;");
-}
+const isRateLimited = createRateLimiter(5, 10 * 60 * 1000);
 
 export async function POST(request: Request) {
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "unknown";
-
-  if (isRateLimited(ip)) {
+  if (isRateLimited(getClientIp(request))) {
     return NextResponse.json(
       { error: "Too many messages. Please try again in a little while." },
       { status: 429 },
@@ -98,7 +62,7 @@ export async function POST(request: Request) {
   }
 
   const mailer = getTransporter();
-  const to = process.env.CONTACT_DESTINATION_EMAIL ?? process.env.GMAIL_USER;
+  const to = destinationEmail();
   if (!mailer || !to) {
     console.error("Contact form: missing GMAIL_USER/GMAIL_APP_PASSWORD env.");
     return NextResponse.json(

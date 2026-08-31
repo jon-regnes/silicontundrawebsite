@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/resources/products",
     "/resources/prompts",
+    "/ebook",
     "/book",
     "/contact",
   ].map((route) => ({
