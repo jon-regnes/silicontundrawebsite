@@ -16,9 +16,18 @@ export const OG_IMAGE = "/images/og/og-image.jpg";
  * Public URL (not a secret); override per-environment with NEXT_PUBLIC_BOOKING_URL.
  * The /book page appends `?gv=true` to embed it in an iframe.
  */
-export const BOOKING_URL =
-  process.env.NEXT_PUBLIC_BOOKING_URL ??
+const DEFAULT_BOOKING_URL =
   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ1SRpS-KyRIqGH1q7sy_5IWni1rcgUVqjhVh0EPhAQ9feWLrhmjwN-1UfSFgxLPZ5AV9dC27u5w";
+
+// Ignore an unset or obviously-placeholder override (e.g. the ".../schedules/xxxxxxxx"
+// value from .env.local.example) so a stray env var can't break the booking embed.
+const envBooking = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
+export const BOOKING_URL =
+  envBooking &&
+  envBooking.includes("/schedules/") &&
+  !/xxxx/i.test(envBooking)
+    ? envBooking
+    : DEFAULT_BOOKING_URL;
 
 export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
