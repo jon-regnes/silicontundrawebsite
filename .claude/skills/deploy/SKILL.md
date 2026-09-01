@@ -1,6 +1,6 @@
 ---
 name: deploy
-description: Deploys the Silicon Tundra site to production via GitHub → Vercel. Only run this when explicitly invoked with /deploy — do not trigger it automatically just because code changed or a task seems "done."
+description: Deploys the Silicon Tundra site to production via GitHub → Railway. Only run this when explicitly invoked with /deploy — do not trigger it automatically just because code changed or a task seems "done."
 disable-model-invocation: true
 context: fork
 ---
@@ -9,7 +9,7 @@ context: fork
 
 Run this as an explicit `/deploy` command, never automatically.
 
-1. **Lint and build locally** — catch failures before they hit GitHub/Vercel:
+1. **Lint and build locally** — catch failures before they hit GitHub/Railway:
    ```
    npm run lint
    npm run build
@@ -27,22 +27,27 @@ Run this as an explicit `/deploy` command, never automatically.
    git push origin main
    ```
 
-4. **Vercel auto-deploys from `main`** — no manual deploy step needed once pushed, assuming the
-   GitHub repo is already connected to the Vercel project. Confirm the connection exists before
-   relying on this; if it's a first-ever deploy, the user needs to have connected the repo in the
-   Vercel dashboard first.
+4. **Railway auto-deploys from `main`** — no manual deploy step needed once pushed, assuming the
+   GitHub repo is already connected to the Railway service with auto-deploy on `main`. Confirm the
+   connection exists before relying on this; if it's a first-ever deploy, the user needs to have
+   created the Railway project from the GitHub repo in the Railway dashboard first. Railway builds
+   with Nixpacks (auto-detects Next.js: `npm ci` → `npm run build` → `npm start`; Node pinned via
+   `engines` in package.json; `next start` binds Railway's `PORT`).
 
 5. **Post-push checks**:
-   - Confirm the new deployment shows up and succeeds in the Vercel dashboard (or via `vercel ls` /
-     `vercel inspect` if the Vercel CLI is set up locally).
+   - Confirm the new deployment shows up and succeeds in the Railway dashboard (Deployments tab) or
+     via `railway logs` if the Railway CLI is set up locally.
    - Spot-check the production URL once the deploy finishes.
    - If this deploy touched routes, content, or metadata, remind the user to check Google Search
      Console for the sitemap status — new pages should already be included via the dynamic
      `sitemap.ts`, but it's worth a glance after major content additions.
 
-6. **Environment variables** — if this deploy introduces a new integration or env var (Cal.com,
-   Kit, Resend keys), confirm it's set in the Vercel project settings, not just `.env.local` —
-   local success doesn't guarantee production has the same variable.
+6. **Environment variables** — if this deploy introduces a new integration or env var, confirm it's
+   set in the Railway service **Variables** tab, not just `.env.local` — local success doesn't
+   guarantee production has the same variable. Current runtime vars: `GMAIL_USER`,
+   `GMAIL_APP_PASSWORD`, `CONTACT_DESTINATION_EMAIL` (contact form + ebook delivery), and
+   `NEXT_PUBLIC_SITE_URL` (build-time; must be set before/at build since it's inlined into the
+   bundle). `NEXT_PUBLIC_BOOKING_URL` is optional (default in `lib/seo.ts`).
 
 ## Don't
 

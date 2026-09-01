@@ -33,15 +33,15 @@ system below leans into that.
 
 | Layer | Choice | Why |
 |---|---|---|
-| Framework | **Next.js 14+ (App Router)**, TypeScript | Best-in-class SEO controls (metadata API, streaming, ISR), pairs natively with Vercel |
+| Framework | **Next.js 15 (App Router)**, TypeScript | Best-in-class SEO controls (metadata API, streaming, ISR); runs as a standard Node server on Railway |
 | Styling | **Tailwind CSS** | Fast to iterate, easy for Claude Code to generate consistent utility classes |
 | Content | **MDX content collections** (services, products, prompts) stored as files in `/content` | Git-based, no CMS account needed, Claude Code can bulk-generate/edit entries |
 | Booking | **Cal.com**, embedded, synced to Google Workspace calendar | Open-source, free tier, native Google Calendar 2-way sync, embeddable widget or hosted link |
 | Email capture | **Kit (formerly ConvertKit)** — see §7.2 for rationale | Simple REST API, generous free tier, built for tagging/automation which fits an automation-first brand |
 | Contact form delivery | **Resend** + a Next.js API route | Clean DX, generous free tier, reliable deliverability, easy to wire to a "send to my inbox" flow |
-| Hosting | **Vercel** | Matches stated deploy path; zero-config Next.js hosting, previews on every PR |
-| Analytics | **Vercel Analytics** + Google Search Console | Privacy-friendly, zero extra script weight; Search Console for indexing/AEO monitoring |
-| Version control | **GitHub**, local dev → commit → push → Vercel auto-deploy | As specified |
+| Hosting | **Railway** | Persistent Node server (suits SMTP + runtime file serving); Nixpacks auto-detects Next.js; GitHub auto-deploy on `main` |
+| Analytics | **Google Search Console** (+ optional privacy-friendly analytics later) | Search Console for indexing/AEO monitoring |
+| Version control | **GitHub**, local dev → commit → push → Railway auto-deploy | As specified |
 
 ---
 
@@ -247,11 +247,14 @@ formatted email to Jon's work inbox. Reply-to is set to the submitter's email fo
 
 1. Local development (`npm run dev`), working in this folder.
 2. Git init → commit → push to a new GitHub repo.
-3. Connect the GitHub repo to Vercel; every push to `main` auto-deploys to production, every PR
-   gets a preview URL.
-4. Environment variables (Cal.com keys if self-hosted, Kit API key + form ID, Resend API key,
-   destination email) set in Vercel project settings, mirrored locally in `.env.local`
-   (`.env.local.example` committed as a template, real `.env.local` gitignored).
+3. Create a Railway project from the GitHub repo; every push to `main` auto-deploys to production.
+   Railway builds via Nixpacks (`npm ci` → `npm run build` → `npm start`; `next start` binds
+   Railway's `PORT`).
+4. Environment variables (`GMAIL_USER`, `GMAIL_APP_PASSWORD`, `CONTACT_DESTINATION_EMAIL`,
+   `NEXT_PUBLIC_SITE_URL`; `NEXT_PUBLIC_BOOKING_URL` optional) set in the Railway service Variables
+   tab, mirrored locally in `.env.local` (`.env.local.example` committed as a template, real
+   `.env.local` gitignored). Note `NEXT_PUBLIC_*` vars are inlined at build time, so set them
+   before/at build.
 
 ---
 
@@ -281,4 +284,4 @@ formatted email to Jon's work inbox. Reply-to is set to the submitter's email fo
 7. Wire up Cal.com embed + `/api/newsletter` (Kit).
 8. Add SEO layer: metadata per route, JSON-LD, sitemap/robots, `llms.txt`.
 9. Content pass: fill in real service copy, seed a handful of real products + prompts.
-10. Deploy: GitHub repo → Vercel → verify Search Console + env vars in production.
+10. Deploy: GitHub repo → Railway → verify Search Console + env vars in production.
