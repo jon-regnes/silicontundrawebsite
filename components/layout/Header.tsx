@@ -30,7 +30,7 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <Button href="/contact">Book a Call</Button>
+          <Button href="/book">Book a Call</Button>
         </nav>
         <MobileNav services={serviceLinks} />
       </div>
