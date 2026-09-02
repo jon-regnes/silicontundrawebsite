@@ -34,7 +34,7 @@ export default function BookPage() {
         {/* Google's booking widget is light-themed; frame it in a white card
             with padding so it reads cleanly instead of clashing with the dark
             page. */}
-        <div className="mt-12 max-w-3xl overflow-hidden rounded-lg bg-white p-3 shadow-2xl ring-1 ring-black/5 sm:p-5">
+        <div className="mt-12 max-w-4xl overflow-hidden rounded-lg bg-white p-3 shadow-2xl ring-1 ring-black/5 sm:p-5">
           <iframe
             src={embedUrl}
             title="Book a 30-minute discovery call"
