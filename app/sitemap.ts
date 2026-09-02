@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getPrompts } from "@/lib/content";
+import { getPrompts, getServices } from "@/lib/content";
 import { FUNCTIONS, INDUSTRIES, type Industry, type PromptFunction } from "@/lib/taxonomy";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -18,6 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: route === "/" ? 1 : 0.8,
+  }));
+
+  const serviceRoutes = getServices().map((service) => ({
+    url: absoluteUrl(`/services/${service.slug}`),
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
   }));
 
   const functionRoutes = (Object.keys(FUNCTIONS) as PromptFunction[]).map(
@@ -49,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...serviceRoutes,
     ...functionRoutes,
     ...industryRoutes,
     ...promptRoutes,

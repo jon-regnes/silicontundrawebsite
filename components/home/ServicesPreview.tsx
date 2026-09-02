@@ -12,23 +12,26 @@ export function ServicesPreview({ services }: { services: Service[] }) {
           What we build
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Four ways to put AI to work in your business — from the front desk to
+          Three ways to put AI to work in your business — from the front desk to
           fully custom software.
         </p>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {services.map((service) => (
             <Link
               key={service.slug}
-              href={`/services#${service.slug}`}
+              href={`/services/${service.slug}`}
               className="group"
             >
-              <Card className="h-full transition-colors group-hover:border-accent">
+              <Card className="flex h-full flex-col transition-colors group-hover:border-accent">
                 <h3 className="font-heading text-lg font-semibold group-hover:text-accent">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                   {service.summary}
                 </p>
+                <span className="mt-4 text-sm font-medium text-accent">
+                  Learn more &rarr;
+                </span>
               </Card>
             </Link>
           ))}

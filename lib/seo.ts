@@ -65,7 +65,7 @@ export function serviceJsonLd(service: Service) {
     "@type": "Service",
     name: service.title,
     description: service.summary,
-    url: absoluteUrl(`/services#${service.slug}`),
+    url: absoluteUrl(`/services/${service.slug}`),
     provider: {
       "@type": "Organization",
       name: SITE_NAME,

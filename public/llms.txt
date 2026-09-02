@@ -11,18 +11,15 @@ Contact: jon@silicontundrallc.com
 
 ## Services
 
-- The 24/7 Receptionist — AI receptionist systems that answer every inbound call, qualify leads,
-  book appointments, and respond after hours so no customer hits voicemail.
-  https://www.silicontundrallc.com/services#receptionist
-- AI Agent Development — custom AI agents for customer follow-up, reminders, reactivation
-  campaigns, lead qualification, review requests, and internal admin workflows.
-  https://www.silicontundrallc.com/services#agents
-- AI & Automation Consulting — audits that find wasted hours, missed revenue, and manual
-  workflows inside small and medium businesses.
-  https://www.silicontundrallc.com/services#consulting
-- AI Product Studio — custom web apps (dashboards, client portals, booking tools, lead
-  management, MVPs) built from your workflows. You bring the problem; we build the product.
-  https://www.silicontundrallc.com/services#product-studio
+- Automation & AI Development — AI receptionists and voice agents, custom AI agents for follow-up,
+  reactivation, reviews and admin, and end-to-end automations that replace manual workflows.
+  https://www.silicontundrallc.com/services/automation-ai-development
+- AI & Automation Consultation — a $5,000 assessment that finds wasted hours, missed revenue, and
+  manual workflows, with a money-back guarantee and the fee credited toward any build.
+  https://www.silicontundrallc.com/services/consultation
+- AI Product Studio — custom web apps (dashboards, client portals, booking tools, lead management,
+  MVPs) built from your workflows. You bring the problem; we build the product.
+  https://www.silicontundrallc.com/services/product-studio
 
 ## Free resources
 

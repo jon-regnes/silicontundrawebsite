@@ -63,6 +63,10 @@ export function getServices(): Service[] {
     .sort((a, b) => a.order - b.order);
 }
 
+export function getService(slug: string): Service | undefined {
+  return getServices().find((s) => s.slug === slug);
+}
+
 export function getProducts(): Product[] {
   return readCollection("products")
     .map(({ slug, data, content }) => ({

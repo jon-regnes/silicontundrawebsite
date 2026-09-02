@@ -10,23 +10,27 @@ and products use the slug as the filename; prompts can use a descriptive slug �
 
 ## `content/services/*.mdx`
 
-There are exactly four entries — one per Silicon Tundra service. `order` controls display order on
-`/services` and in the home page preview cards; `slug` is the anchor id (`/services#<slug>`).
+There are exactly three entries — one per Silicon Tundra service. `order` controls display order on
+`/services` and in the home page preview cards; `slug` is the URL segment for the service's own page
+at `/services/<slug>`.
 
 ```yaml
 ---
-title: string    # e.g. "The 24/7 Receptionist"
-slug: string     # anchor id — one of: receptionist, agents, consulting, product-studio
-order: number    # 1-4, controls display order
-summary: string  # one sentence, used on home page preview cards
+title: string    # e.g. "Automation & AI Development"
+slug: string     # URL segment — one of: automation-ai-development, consultation, product-studio
+order: number    # 1-3, controls display order
+summary: string  # one sentence, used on home preview + /services overview cards + Service JSON-LD
 ---
 
-<full pitch for the service goes in the MDX body — this is what renders on the /services page>
+<the service's prose goes in the MDX body — rendered on its /services/<slug> page>
 ```
 
-Existing files: `24-7-receptionist.mdx`, `ai-agent-development.mdx`, `automation-consulting.mdx`,
-`ai-product-studio.mdx`. Don't add a fifth service file without updating the home page preview
-grid (currently assumes 4 cards) and the `Service` JSON-LD loop in `lib/seo.ts`.
+Existing files: `automation-ai-development.mdx`, `ai-automation-consultation.mdx`,
+`ai-product-studio.mdx`. Each has its own page at `app/services/<slug>/page.tsx` (built on the
+shared `ServicePageShell`), which renders the MDX prose plus any bespoke blocks (video, offer box,
+product feature). Adding/removing a service means updating those page files, the home preview grid
+(`md:grid-cols-3`), the nav dropdown (auto — reads `getServices()`), and the sitemap (auto). The
+`Service` JSON-LD is emitted per page via `serviceJsonLd()` in `lib/seo.ts`.
 
 ## `content/products/*.mdx` and `content/prompts/*.mdx`
 

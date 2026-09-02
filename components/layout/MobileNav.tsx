@@ -4,15 +4,20 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 
-const links = [
-  { href: "/services", label: "Services" },
+const otherLinks = [
   { href: "/resources", label: "Resources" },
   { href: "/ebook", label: "Free Ebook" },
   { href: "/contact", label: "Contact" },
 ];
 
-export function MobileNav() {
+interface ServiceLink {
+  slug: string;
+  title: string;
+}
+
+export function MobileNav({ services }: { services: ServiceLink[] }) {
   const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
     <div className="md:hidden">
@@ -40,13 +45,36 @@ export function MobileNav() {
         </svg>
       </button>
       {open && (
-        <div className="absolute inset-x-0 top-full border-b border-border bg-background px-6 py-6">
+        <div className="absolute inset-x-0 top-full max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-border bg-background px-6 py-6">
           <nav className="flex flex-col gap-4" aria-label="Mobile">
-            {links.map((link) => (
+            {/* Services group */}
+            <div>
+              <Link
+                href="/services"
+                onClick={close}
+                className="font-heading text-lg font-medium text-foreground hover:text-accent"
+              >
+                Services
+              </Link>
+              <div className="mt-2 flex flex-col gap-2 border-l border-border pl-4">
+                {services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    onClick={close}
+                    className="text-sm text-muted hover:text-foreground"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {otherLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={close}
                 className="font-heading text-lg font-medium text-foreground hover:text-accent"
               >
                 {link.label}
