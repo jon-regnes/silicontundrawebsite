@@ -31,14 +31,17 @@ export default function BookPage() {
           business could reclaim with AI and automation. Pick a time that works
           and you&apos;ll get a calendar invite with a Google Meet link.
         </p>
-        <div className="mt-12 overflow-hidden rounded-sm border border-border bg-surface">
+        {/* Google's booking widget is light-themed; frame it in a white card
+            with padding so it reads cleanly instead of clashing with the dark
+            page. */}
+        <div className="mt-12 max-w-3xl overflow-hidden rounded-lg bg-white p-3 shadow-2xl ring-1 ring-black/5 sm:p-5">
           <iframe
             src={embedUrl}
             title="Book a 30-minute discovery call"
             width="100%"
             height="700"
             frameBorder="0"
-            className="block w-full"
+            className="block w-full rounded-md"
             style={{ border: 0, colorScheme: "light" }}
           />
         </div>
