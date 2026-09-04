@@ -38,6 +38,16 @@ export interface Prompt {
   promptText: string;
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  description: string;
+  date: string; // ISO date, e.g. "2026-09-04"
+  author: string;
+  tags: string[];
+  body: string;
+}
+
 function readCollection(collection: string) {
   const dir = path.join(CONTENT_DIR, collection);
   if (!fs.existsSync(dir)) return [];
@@ -129,3 +139,22 @@ export function getPromptsByIndustry(ind: Industry): Prompt[] {
 export function getPrompt(slug: string): Prompt | undefined {
   return getPrompts().find((p) => p.slug === slug);
 }
+
+export function getPosts(): BlogPost[] {
+  return readCollection("blog")
+    .map(({ slug, data, content }) => ({
+      slug,
+      title: data.title as string,
+      description: data.description as string,
+      date: data.date as string,
+      author: (data.author as string) ?? "Silicon Tundra",
+      tags: (data.tags ?? []) as string[],
+      body: content,
+    }))
+    .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
+}
+
+export function getPost(slug: string): BlogPost | undefined {
+  return getPosts().find((p) => p.slug === slug);
+}
+

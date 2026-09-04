@@ -1,4 +1,4 @@
-import type { Service } from "./content";
+import type { BlogPost, Service } from "./content";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.silicontundrallc.com";
@@ -89,6 +89,25 @@ export function faqJsonLd(items: { question: string; answer: string }[]) {
       name: item.question,
       acceptedAnswer: { "@type": "Answer", text: item.answer },
     })),
+  };
+}
+
+export function articleJsonLd(post: BlogPost) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    author: { "@type": "Person", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    keywords: post.tags.join(", "),
   };
 }
 

@@ -114,6 +114,29 @@ A prompt can carry multiple industry values if it genuinely applies to more than
 generic "review request" prompt might apply to several) — the industry landing page for each value
 should then include that entry.
 
+## `content/blog/*.mdx`
+
+Blog posts. Filename is the kebab-case slug → `/blog/<slug>`. Listed on `/blog` (newest first by
+`date`) and rendered on its own page with the long-form `proseComponents`
+(`components/mdx/prose.tsx`).
+
+```yaml
+---
+title: string          # post headline
+description: string    # 1-2 sentence excerpt — used on cards + meta description + OG
+date: string           # ISO publish date, "YYYY-MM-DD" — controls sort order (newest first)
+author: string         # optional, defaults to "Silicon Tundra"
+tags:                  # optional, free-form
+  - AI
+  - Automation
+---
+
+<the post body in Markdown/MDX — headings (## / ###), lists, links, blockquotes, etc.>
+```
+
+Posts emit `BlogPosting` JSON-LD via `articleJsonLd()` in `lib/seo.ts` and are auto-added to the
+sitemap. Use root-relative links (`/ebook`, `/book`) for internal CTAs.
+
 ## Adding a new entry
 
 1. Create the `.mdx` file with the correct frontmatter shape above — validate every required field

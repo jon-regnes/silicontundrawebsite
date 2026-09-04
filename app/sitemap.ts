@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getPrompts, getServices } from "@/lib/content";
+import { getPosts, getPrompts, getServices } from "@/lib/content";
 import { FUNCTIONS, INDUSTRIES, type Industry, type PromptFunction } from "@/lib/taxonomy";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/resources",
     "/resources/products",
     "/resources/prompts",
+    "/blog",
     "/ebook",
     "/book",
     "/contact",
@@ -25,6 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  const blogRoutes = getPosts().map((post) => ({
+    url: absoluteUrl(`/blog/${post.slug}`),
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
 
   const functionRoutes = (Object.keys(FUNCTIONS) as PromptFunction[]).map(
@@ -57,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...serviceRoutes,
+    ...blogRoutes,
     ...functionRoutes,
     ...industryRoutes,
     ...promptRoutes,
