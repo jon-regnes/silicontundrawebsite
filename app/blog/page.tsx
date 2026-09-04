@@ -55,7 +55,7 @@ export default function BlogPage() {
                     {post.title}
                   </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                    {post.description}
+                    {post.excerpt}
                   </p>
                   <span className="mt-4 text-sm font-medium text-accent">
                     Read more &rarr;

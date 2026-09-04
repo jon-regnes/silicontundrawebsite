@@ -40,3 +40,6 @@ content/ebook/.build.html
 *.tsbuildinfo
 next-env.d.ts
 .firecrawl/
+
+# raw blog-post drop folder (converted into content/blog)
+Blog Posts/

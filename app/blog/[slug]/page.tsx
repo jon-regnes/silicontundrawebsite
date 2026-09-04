@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { JsonLd } from "@/components/JsonLd";
 import { proseComponents } from "@/components/mdx/prose";
+import { VideoEmbed } from "@/components/services/VideoEmbed";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -56,6 +57,7 @@ export default async function BlogPostPage({ params }: Props) {
     <Section className="pt-24">
       <Container>
         <JsonLd data={articleJsonLd(post)} />
+        {post.faqJsonLd && <JsonLd data={post.faqJsonLd} />}
         <article className="mx-auto max-w-2xl">
           <nav aria-label="Breadcrumb" className="text-sm text-muted">
             <Link href="/blog" className="hover:text-accent">
@@ -77,6 +79,12 @@ export default async function BlogPostPage({ params }: Props) {
                   {tag}
                 </Badge>
               ))}
+            </div>
+          )}
+
+          {post.youtube && (
+            <div className="mt-8">
+              <VideoEmbed id={post.youtube} title={post.title} />
             </div>
           )}
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BlogTeaser } from "@/components/home/BlogTeaser";
 import { BookingCTA } from "@/components/home/BookingCTA";
 import { EbookCTA } from "@/components/home/EbookCTA";
 import { EmailCaptureBand } from "@/components/home/EmailCaptureBand";
@@ -7,7 +8,7 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { ResourcesTeaser } from "@/components/home/ResourcesTeaser";
 import { ServicesPreview } from "@/components/home/ServicesPreview";
 import { Testimonial } from "@/components/home/Testimonial";
-import { getPrompts, getServices, type Prompt } from "@/lib/content";
+import { getPosts, getPrompts, getServices, type Prompt } from "@/lib/content";
 import { OG_IMAGE } from "@/lib/seo";
 
 /**
@@ -51,6 +52,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const services = getServices();
   const featuredPrompts = pickFeaturedPrompts(getPrompts());
+  const latestPosts = getPosts().slice(0, 3);
 
   return (
     <>
@@ -58,6 +60,7 @@ export default function HomePage() {
       <Testimonial />
       <ServicesPreview services={services} />
       <HowItWorks />
+      <BlogTeaser posts={latestPosts} />
       <ResourcesTeaser prompts={featuredPrompts} />
       <EbookCTA />
       <EmailCaptureBand />

@@ -25,6 +25,8 @@ Contact: jon@silicontundrallc.com
 
 - Researched Products — curated AI/automation tools for small and medium businesses, with honest
   pros and cons: https://www.silicontundrallc.com/resources/products
+- Blog — practical articles on putting AI and automation to work in small and medium businesses:
+  https://www.silicontundrallc.com/blog
 - Prompt Library — plug-and-play AI prompts organized by function and by industry:
   https://www.silicontundrallc.com/resources/prompts
   - By function:

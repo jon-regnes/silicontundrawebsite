@@ -7,6 +7,7 @@ import { ServicesMenu } from "./ServicesMenu";
 
 const links = [
   { href: "/resources", label: "Resources" },
+  { href: "/blog", label: "Blog" },
   { href: "/ebook", label: "Free Ebook" },
   { href: "/contact", label: "Contact" },
 ];

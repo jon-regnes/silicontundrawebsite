@@ -42,10 +42,42 @@ export interface BlogPost {
   slug: string;
   title: string;
   description: string;
+  excerpt: string;
   date: string; // ISO date, e.g. "2026-09-04"
   author: string;
   tags: string[];
+  youtube?: string; // optional YouTube video id, embedded near the top
+  faqJsonLd?: Record<string, unknown>; // FAQPage schema lifted from the body
   body: string;
+}
+
+/**
+ * Splits a raw post body into the visible prose and any FAQPage JSON-LD.
+ * Authors can append a "## Suggested Schema Markup" section with a ```json
+ * FAQPage block; we lift it into real structured data and hide the note.
+ * Also strips a leading "# H1" so it doesn't duplicate the page's own <h1>.
+ */
+function extractBlogBody(raw: string): {
+  body: string;
+  faqJsonLd?: Record<string, unknown>;
+} {
+  let body = raw.replace(/^\s*#\s+.*\r?\n+/, "");
+  let faqJsonLd: Record<string, unknown> | undefined;
+
+  const schemaIdx = body.search(/\n#{2,3}\s+Suggested Schema Markup/i);
+  if (schemaIdx !== -1) {
+    const schemaSection = body.slice(schemaIdx);
+    body = body.slice(0, schemaIdx).trimEnd();
+    const json = schemaSection.match(/```json\s*([\s\S]*?)```/);
+    if (json) {
+      try {
+        faqJsonLd = JSON.parse(json[1]);
+      } catch {
+        faqJsonLd = undefined;
+      }
+    }
+  }
+  return { body, faqJsonLd };
 }
 
 function readCollection(collection: string) {
@@ -142,15 +174,21 @@ export function getPrompt(slug: string): Prompt | undefined {
 
 export function getPosts(): BlogPost[] {
   return readCollection("blog")
-    .map(({ slug, data, content }) => ({
-      slug,
-      title: data.title as string,
-      description: data.description as string,
-      date: data.date as string,
-      author: (data.author as string) ?? "Silicon Tundra",
-      tags: (data.tags ?? []) as string[],
-      body: content,
-    }))
+    .map(({ slug, data, content }) => {
+      const { body, faqJsonLd } = extractBlogBody(content);
+      return {
+        slug,
+        title: data.title as string,
+        description: data.description as string,
+        excerpt: (data.excerpt as string) ?? (data.description as string),
+        date: data.date as string,
+        author: (data.author as string) ?? "Silicon Tundra",
+        tags: (data.tags ?? []) as string[],
+        youtube: data.youtube as string | undefined,
+        faqJsonLd,
+        body,
+      };
+    })
     .sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
 }
 
