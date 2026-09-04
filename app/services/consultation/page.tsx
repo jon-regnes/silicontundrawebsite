@@ -37,7 +37,8 @@ export default function ConsultationPage() {
             </p>
             <p className="mt-1 text-muted">
               If our assessment doesn&apos;t show how implementing AI and
-              automation can save you $5,000, we&apos;ll return the fee to you.
+              automation can save you $5,000 annually, we&apos;ll return the fee
+              to you.
             </p>
           </li>
           <li>
