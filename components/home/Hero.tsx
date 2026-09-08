@@ -7,7 +7,7 @@ export function Hero() {
     <Section className="pt-24 md:pt-36">
       <Container>
         <p className="font-heading text-sm font-semibold uppercase tracking-[0.25em] text-accent">
-          AI &amp; Automation for Small &amp; Medium Business
+          Assess &middot; Automate &middot; Build
         </p>
         <h1 className="mt-6 max-w-3xl font-heading text-4xl font-bold leading-tight tracking-tight md:text-6xl">
           The AI and Automation Navigator for Small &amp; Medium Business.
