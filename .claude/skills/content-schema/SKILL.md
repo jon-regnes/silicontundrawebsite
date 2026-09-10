@@ -123,19 +123,32 @@ Blog posts. Filename is the kebab-case slug → `/blog/<slug>`. Listed on `/blog
 ```yaml
 ---
 title: string          # post headline
-description: string    # 1-2 sentence excerpt — used on cards + meta description + OG
+description: string    # meta description (SEO) — 1-2 sentences
+excerpt: string        # optional card blurb; falls back to description
 date: string           # ISO publish date, "YYYY-MM-DD" — controls sort order (newest first)
 author: string         # optional, defaults to "Silicon Tundra"
 tags:                  # optional, free-form
   - AI
   - Automation
+youtube: string        # optional YouTube video id — embedded near the top of the post
+coverImage: string     # optional /public path, e.g. "/blog/foo.jpg" — post banner + social/OG image
 ---
 
-<the post body in Markdown/MDX — headings (## / ###), lists, links, blockquotes, etc.>
+<the post body in Markdown/MDX — headings (## / ###), lists, links, blockquotes, images, etc.>
 ```
 
 Posts emit `BlogPosting` JSON-LD via `articleJsonLd()` in `lib/seo.ts` and are auto-added to the
 sitemap. Use root-relative links (`/ebook`, `/book`) for internal CTAs.
+
+**Images.** Store image files in `public/blog/` and reference them in the body with standard
+markdown: `![descriptive alt text](/blog/your-image.jpg)`. Body images render as styled,
+lazy-loaded `<img>` (via `proseComponents`) — always include real alt text. A post's `coverImage`
+renders as a 16:9 banner (optimized `next/image`) near the top and is used as that post's
+social-share/OG image (falls back to the default OG image when unset).
+
+**FAQ schema.** If a post ends with a "## Suggested Schema Markup" section containing a ```json
+FAQPage block, the loader lifts it into real `FAQPage` JSON-LD and hides the raw note from the
+rendered page. A leading `# H1` in the body is stripped (the page renders its own `<h1>`).
 
 ## Adding a new entry
 

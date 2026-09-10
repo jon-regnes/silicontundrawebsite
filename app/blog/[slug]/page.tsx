@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       publishedTime: post.date,
       authors: [post.author],
-      images: [OG_IMAGE],
+      images: [post.coverImage ?? OG_IMAGE],
     },
   };
 }
@@ -79,6 +80,19 @@ export default async function BlogPostPage({ params }: Props) {
                   {tag}
                 </Badge>
               ))}
+            </div>
+          )}
+
+          {post.coverImage && (
+            <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-sm border border-border">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
             </div>
           )}
 

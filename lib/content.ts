@@ -47,6 +47,7 @@ export interface BlogPost {
   author: string;
   tags: string[];
   youtube?: string; // optional YouTube video id, embedded near the top
+  coverImage?: string; // optional /public path, e.g. "/blog/foo.jpg"
   faqJsonLd?: Record<string, unknown>; // FAQPage schema lifted from the body
   body: string;
 }
@@ -185,6 +186,7 @@ export function getPosts(): BlogPost[] {
         author: (data.author as string) ?? "Silicon Tundra",
         tags: (data.tags ?? []) as string[],
         youtube: data.youtube as string | undefined,
+        coverImage: data.coverImage as string | undefined,
         faqJsonLd,
         body,
       };

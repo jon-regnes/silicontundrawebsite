@@ -1,5 +1,9 @@
 import Link from "next/link";
-import type { AnchorHTMLAttributes, HTMLAttributes } from "react";
+import type {
+  AnchorHTMLAttributes,
+  HTMLAttributes,
+  ImgHTMLAttributes,
+} from "react";
 
 /**
  * Long-form MDX component map for blog posts. Design-system tokens throughout;
@@ -53,6 +57,19 @@ export const proseComponents = {
       />
     );
   },
+  // Body images are authored in markdown with arbitrary/unknown dimensions, so a
+  // styled, lazy-loaded <img> fits here (next/image needs known dimensions and is
+  // used for the cover image instead).
+  img: ({ src = "", alt = "", ...props }: ImgHTMLAttributes<HTMLImageElement>) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={typeof src === "string" ? src : undefined}
+      alt={alt}
+      loading="lazy"
+      className="my-8 w-full rounded-sm border border-border"
+      {...props}
+    />
+  ),
   hr: () => <hr className="my-10 border-border" />,
   code: (props: HTMLAttributes<HTMLElement>) => (
     <code
